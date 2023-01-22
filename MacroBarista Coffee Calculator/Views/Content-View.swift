@@ -5,7 +5,6 @@ import SwiftUI
 extension ContentView{
     //observableobject allows data to be fetched from account combination database
     class ViewModel: ObservableObject{
-        //
         @AppStorage("AUTH_KEY") var authenticated = false {
             willSet{objectWillChange.send() }
         }
@@ -19,6 +18,9 @@ extension ContentView{
         init(){
             print("Login Status: \(authenticated)")
             print("Current user: \(username)")
+        }
+        func nonUser(){
+           CreateAccount_View()
         }
         //toggles authentication, user does not need to log back in if closes the app
         func toggleAuthentication(){
