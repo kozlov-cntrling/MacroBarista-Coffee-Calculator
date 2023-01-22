@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "772D86F3-0673-4B9D-AA5C-475486E1B9CC"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "39D338A7-E83F-4FE4-999F-F7C7819955F6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacroBarista Coffee Calculator/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "3"
+            endingLineNumber = "3"
+            landmarkName = "ContentView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "39D338A7-E83F-4FE4-999F-F7C7819955F6 - 7f24fe81d9c0dbee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroBarista_Coffee_Calculator.ContentView.init() -&gt; MacroBarista_Coffee_Calculator.ContentView"
+                  moduleName = "MacroBarista Coffee Calculator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/loganbrown/Desktop/MacroBarista%20Coffee%20Calculator/MacroBarista%20Coffee%20Calculator/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "4"
+                  endingLineNumber = "4"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  uuid = "39D338A7-E83F-4FE4-999F-F7C7819955F6 - caed08a8c8258f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroBarista_Coffee_Calculator.ContentView.init(vm: @autoclosure () -&gt; MacroBarista_Coffee_Calculator.ContentView.ViewModel) -&gt; MacroBarista_Coffee_Calculator.ContentView"
+                  moduleName = "MacroBarista Coffee Calculator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/loganbrown/Desktop/MacroBarista%20Coffee%20Calculator/MacroBarista%20Coffee%20Calculator/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6C50F2DC-ACD2-4C64-8802-64ABCC278378"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacroBarista Coffee Calculator/Content-View.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "ViewModel"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
