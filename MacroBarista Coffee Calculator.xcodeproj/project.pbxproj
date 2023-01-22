@@ -20,6 +20,9 @@
 		837A5F71297DD233000238D3 /* CreateAccount View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F70297DD233000238D3 /* CreateAccount View.swift */; };
 		837A5F72297DD233000238D3 /* CreateAccount View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F70297DD233000238D3 /* CreateAccount View.swift */; };
 		837A5F73297DD233000238D3 /* CreateAccount View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F70297DD233000238D3 /* CreateAccount View.swift */; };
+		837A5F75297DDA84000238D3 /* CreateAccount Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F74297DDA84000238D3 /* CreateAccount Controller.swift */; };
+		837A5F76297DDA84000238D3 /* CreateAccount Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F74297DDA84000238D3 /* CreateAccount Controller.swift */; };
+		837A5F77297DDA84000238D3 /* CreateAccount Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F74297DDA84000238D3 /* CreateAccount Controller.swift */; };
 		83B799212979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B799202979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift */; };
 		83B799232979BBB800A233FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B799222979BBB800A233FB /* ContentView.swift */; };
 		83B799252979BBBF00A233FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83B799242979BBBF00A233FB /* Assets.xcassets */; };
@@ -50,6 +53,7 @@
 		837A5F5A297A09C7000238D3 /* Content-View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content-View.swift"; sourceTree = "<group>"; };
 		837A5F5E297D9000000238D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		837A5F70297DD233000238D3 /* CreateAccount View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateAccount View.swift"; sourceTree = "<group>"; };
+		837A5F74297DDA84000238D3 /* CreateAccount Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateAccount Controller.swift"; sourceTree = "<group>"; };
 		83B7991D2979BBB800A233FB /* MacroBarista Coffee Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MacroBarista Coffee Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B799202979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroBarista_Coffee_CalculatorApp.swift; sourceTree = "<group>"; };
 		83B799222979BBB800A233FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,8 +103,9 @@
 			children = (
 				83B799222979BBB800A233FB /* ContentView.swift */,
 				837A5F5A297A09C7000238D3 /* Content-View.swift */,
-				83B799202979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift */,
 				837A5F70297DD233000238D3 /* CreateAccount View.swift */,
+				837A5F74297DDA84000238D3 /* CreateAccount Controller.swift */,
+				83B799202979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				837A5F5B297A09C7000238D3 /* Content-View.swift in Sources */,
 				83B799212979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift in Sources */,
 				837A5F71297DD233000238D3 /* CreateAccount View.swift in Sources */,
+				837A5F75297DDA84000238D3 /* CreateAccount Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +325,7 @@
 			files = (
 				83B799332979BBC000A233FB /* MacroBarista_Coffee_CalculatorTests.swift in Sources */,
 				837A5F72297DD233000238D3 /* CreateAccount View.swift in Sources */,
+				837A5F76297DDA84000238D3 /* CreateAccount Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +335,7 @@
 			files = (
 				83B7993F2979BBC000A233FB /* MacroBarista_Coffee_CalculatorUITestsLaunchTests.swift in Sources */,
 				837A5F73297DD233000238D3 /* CreateAccount View.swift in Sources */,
+				837A5F77297DDA84000238D3 /* CreateAccount Controller.swift in Sources */,
 				83B7993D2979BBC000A233FB /* MacroBarista_Coffee_CalculatorUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

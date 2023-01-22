@@ -20,7 +20,7 @@ extension ContentView{
             print("Current user: \(username)")
         }
         func nonUser(){
-           CreateAccount_View()
+
         }
         //toggles authentication, user does not need to log back in if closes the app
         func toggleAuthentication(){

@@ -34,7 +34,7 @@ struct ContentView: View {
                         .privacySensitive()
                     
                     HStack{
-                        Button("Create an Account", action: vm.nonUser())
+                        Button("Create an Account", action: {})
                             .tint(.blue)
 
                         Spacer()
