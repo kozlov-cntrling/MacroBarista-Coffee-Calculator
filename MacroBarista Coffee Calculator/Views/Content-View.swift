@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import Firebase
 
 //login-screen information, extension adds functionality to existing function
 extension ContentView{
@@ -15,13 +16,7 @@ extension ContentView{
         private var testUser = "alex"
         private var testPass = "coffee"
         
-        init(){
-            print("Login Status: \(authenticated)")
-            print("Current user: \(username)")
-        }
-        func nonUser(){
 
-        }
         //toggles authentication, user does not need to log back in if closes the app
         func toggleAuthentication(){
             self.password = ""

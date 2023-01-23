@@ -6,8 +6,14 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct CreateAccount_View: View {
+    @State public var fname = ""
+    @State public var lname = ""
+    @State public var password = ""
+    @State private var conf_Password = ""
+    @State public var email = ""
     var body: some View {
         ZStack{
             Image("background")
@@ -18,6 +24,14 @@ struct CreateAccount_View: View {
                 Text("**Create an account**")
                     .foregroundColor(.white)
                     .font(.system(size:36, weight:.medium, design:.rounded))
+                HStack{
+                    TextField("First Name", text: $fname)
+                        .textFieldStyle(.roundedBorder)
+                        .textInputAutocapitalization(.never)
+                    TextField("Last Name", text: $lname)
+                        .textFieldStyle(.roundedBorder)
+                        .textInputAutocapitalization(.never)
+                }
                 HStack(spacing:5){
                     Button("Already have one?", action:{})
                         .foregroundColor(.white)
