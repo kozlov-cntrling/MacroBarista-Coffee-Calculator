@@ -100,8 +100,8 @@
 		837A5F6F297DD0E1000238D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				83B799222979BBB800A233FB /* ContentView.swift */,
 				837A5F5A297A09C7000238D3 /* Content-View.swift */,
+				83B799222979BBB800A233FB /* ContentView.swift */,
 				837A5F70297DD233000238D3 /* CreateAccount View.swift */,
 				837A5F74297DDA84000238D3 /* CreateAccount Controller.swift */,
 				83B799202979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift */,

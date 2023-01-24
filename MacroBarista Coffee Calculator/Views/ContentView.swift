@@ -1,5 +1,6 @@
 import SwiftUI
 import Firebase
+
 struct ContentView: View {
     @StateObject var vm = ViewModel()
     var body: some View {
@@ -10,7 +11,8 @@ struct ContentView: View {
                     .buttonStyle(.bordered)
                 Text("**\(vm.username)**")
             }
-        } else{
+        }
+        else{
             NavigationView{
                 ZStack{
                     Image("background")

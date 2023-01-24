@@ -16,6 +16,7 @@ struct CreateAccount_View: View {
     @State public var email = ""
     var body: some View {
         NavigationView {
+            
             ZStack{
                 Image("background")
                     .resizable()
@@ -49,13 +50,6 @@ struct CreateAccount_View: View {
                         .privacySensitive()
                         .frame(width: 400)
                     HStack(alignment: .center,spacing:5){
-                        NavigationLink(destination: ContentView()) {
-                            Text("Already have one?")
-                                .foregroundColor(.white)
-                                .font(.system(size:20, weight:.medium, design:.rounded))
-                            Text("Sign in")
-                                .font(.system(size:20, weight:.medium, design:.rounded))
-                        }
                         Spacer()
                         Button{
                             register()
@@ -72,8 +66,14 @@ struct CreateAccount_View: View {
     }
 }
 
-    struct CreateAccount_View_Previews: PreviewProvider {
-        static var previews: some View {
-            CreateAccount_View()
-        }
+struct CreateAccount_View_Previews: PreviewProvider {
+    static var previews: some View {
+        CreateAccount_View()
     }
+}
+extension AnyTransition {
+    static var backslide: AnyTransition {
+        AnyTransition.asymmetric(
+            insertion: .move(edge: .trailing),
+            removal: .move(edge: .leading))}
+}
