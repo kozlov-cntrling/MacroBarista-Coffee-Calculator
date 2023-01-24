@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8372147C297F91060040F2E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8372147B297F91050040F2E9 /* GoogleService-Info.plist */; };
 		837A5F5B297A09C7000238D3 /* Content-View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F5A297A09C7000238D3 /* Content-View.swift */; };
 		837A5F64297DA6F2000238D3 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 837A5F63297DA6F2000238D3 /* FirebaseAnalyticsSwift */; };
 		837A5F66297DA6F2000238D3 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 837A5F65297DA6F2000238D3 /* FirebaseAppCheck */; };
@@ -47,7 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		833D4E3C297EFB2500CCBD3E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8372147B297F91050040F2E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8372147D297F910D0040F2E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		837A5F5A297A09C7000238D3 /* Content-View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content-View.swift"; sourceTree = "<group>"; };
 		837A5F70297DD233000238D3 /* CreateAccount View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateAccount View.swift"; sourceTree = "<group>"; };
 		837A5F74297DDA84000238D3 /* CreateAccount Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateAccount Controller.swift"; sourceTree = "<group>"; };
@@ -103,7 +105,6 @@
 				837A5F70297DD233000238D3 /* CreateAccount View.swift */,
 				837A5F74297DDA84000238D3 /* CreateAccount Controller.swift */,
 				83B799202979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift */,
-				833D4E3C297EFB2500CCBD3E /* GoogleService-Info.plist */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -111,6 +112,7 @@
 		83B799142979BBB800A233FB = {
 			isa = PBXGroup;
 			children = (
+				8372147D297F910D0040F2E9 /* GoogleService-Info.plist */,
 				83B7991F2979BBB800A233FB /* MacroBarista Coffee Calculator */,
 				83B799312979BBC000A233FB /* MacroBarista Coffee CalculatorTests */,
 				83B7993B2979BBC000A233FB /* MacroBarista Coffee CalculatorUITests */,
@@ -134,6 +136,7 @@
 				837A5F6F297DD0E1000238D3 /* Views */,
 				83B799242979BBBF00A233FB /* Assets.xcassets */,
 				83B799262979BBBF00A233FB /* MacroBarista_Coffee_Calculator.entitlements */,
+				8372147B297F91050040F2E9 /* GoogleService-Info.plist */,
 				83B799272979BBBF00A233FB /* Preview Content */,
 			);
 			path = "MacroBarista Coffee Calculator";
@@ -281,6 +284,7 @@
 			files = (
 				83B799292979BBBF00A233FB /* Preview Assets.xcassets in Resources */,
 				83B799252979BBBF00A233FB /* Assets.xcassets in Resources */,
+				8372147C297F91060040F2E9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

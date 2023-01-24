@@ -11,49 +11,54 @@ struct ContentView: View {
                 Text("**\(vm.username)**")
             }
         } else{
-            ZStack{
-                Image("background")
-                    .resizable()
-                    .cornerRadius(20)
-                    .ignoresSafeArea()
-                VStack(alignment: .leading, spacing:20){
-                    Spacer()
-                    Image("Strong AF")
+            NavigationView{
+                ZStack{
+                    Image("background")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .clipShape(Circle())
-                    Text("Login")
-                        .font(.system(size: 40, weight: .medium, design: .rounded))
-                        .foregroundColor(.white)
-                    TextField("Username", text:$vm.username)
-                        .textFieldStyle(.roundedBorder)
-                        .textInputAutocapitalization(.never)
-                    SecureField("Password", text: $vm.password)
-                        .textFieldStyle(.roundedBorder)
-                        .textInputAutocapitalization(.never)
-                        .privacySensitive()
-                    
-                    HStack{
-                        Button("Create an Account", action: {})
-                            .tint(.blue)
-
+                        .cornerRadius(20)
+                        .ignoresSafeArea()
+                    VStack(alignment: .leading, spacing:20){
                         Spacer()
-                        Button("Login", action: vm.authenticate)
-                            .buttonStyle(.borderedProminent)
+                        Image("Strong AF")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(Circle())
+                        Text("Login")
+                            .font(.system(size: 40, weight: .medium, design: .rounded))
+                            .foregroundColor(.white)
+                        TextField("Username", text: $vm.username)
+                            .textFieldStyle(.roundedBorder)
+                            .textInputAutocapitalization(.never)
+                        SecureField("Password", text: $vm.password)
+                            .textFieldStyle(.roundedBorder)
+                            .textInputAutocapitalization(.never)
+                            .privacySensitive()
+                        
+                        HStack{
+                            NavigationLink(destination: CreateAccount_View()){
+                                Text("Create New Account")
+                                .tint(.blue)
+                            }
+                            .transition(.scale)
+                            Spacer()
+                            Button("Login", action: vm.authenticate)
+                                .buttonStyle(.borderedProminent)
+                            Spacer()
+                        }
+                        Button("Forgot password?", action:vm.testPress)
+                            .tint(.blue)
+                        Spacer()
+                        Spacer()
                         Spacer()
                     }
-                    Button("Forgot password?", action:vm.testPress)
-                        .tint(.blue)
-                        
-                    Spacer()
-                }
-                .alert("Wrong username/password", isPresented: $vm.invalid){
+                    .alert("Wrong username/password", isPresented: $vm.invalid){
                         Button("Dismiss",action: vm.testPress)
+                    }
+                    .frame(width:310)
+                    .padding()
                 }
-                .frame(width:250)
-                .padding()
+                .transition(.scale)
             }
-            .transition(.scale)
         }
     }
 }

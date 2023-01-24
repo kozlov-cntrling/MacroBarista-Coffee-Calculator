@@ -1,4 +1,3 @@
-import Foundation
 import SwiftUI
 import Firebase
 
@@ -9,13 +8,10 @@ extension ContentView{
         @AppStorage("AUTH_KEY") var authenticated = false {
             willSet{objectWillChange.send() }
         }
-        @AppStorage("USER_KEY") var username = "alex"
-        @Published var password = "coffee"
+        @AppStorage("USER_KEY") var username = ""
+        @Published var password = ""
         @Published var invalid: Bool = false
         //Future admin user, testpass only usuable in class viewmodel
-        private var testUser = "alex"
-        private var testPass = "coffee"
-        
 
         //toggles authentication, user does not need to log back in if closes the app
         func toggleAuthentication(){
@@ -24,13 +20,13 @@ extension ContentView{
                 authenticated.toggle()
             }
         }
-        //username and password verification
+        //username and password verification needs to be reworked to work with firebase
         func authenticate(){
-            guard self.username.lowercased() == testUser else{
+            guard self.username.lowercased() == "" else{
                 self.invalid = true
                 return
             }
-            guard self.password.lowercased() == testPass else{
+            guard self.password.lowercased() == "" else{
                 self.invalid = true
                 return
             }
