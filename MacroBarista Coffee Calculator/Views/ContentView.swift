@@ -4,6 +4,7 @@ import Firebase
 struct ContentView: View {
     @StateObject var vm = ViewModel()
     var body: some View {
+        
         if !vm.authenticated{
             VStack{
                 Button("Logout", action: vm.logOut)
@@ -28,16 +29,12 @@ struct ContentView: View {
                         Text("Login")
                             .font(.system(size: 40, weight: .medium, design: .rounded))
                             .foregroundColor(.white)
-                        TextField("Username", text: $vm.username)
-                            .textFieldStyle(.roundedBorder)
+                        TextBoxView(text: $vm.username, placeholder: "Username", keyboard: .emailAddress, sfSymbol: "person.fill")
                             .textInputAutocapitalization(.never)
-                        SecureField("Password", text: $vm.password)
-                            .textFieldStyle(.roundedBorder)
-                            .textInputAutocapitalization(.never)
-                            .privacySensitive()
-                        
+                        PasswordBoxView(password: $vm.password,placeholder: "Password", sfSymbol: "lock.fill")
+                                .textInputAutocapitalization(.never)
                         HStack{
-                            NavigationLink(destination: CreateAccount_View()){
+                            NavigationLink(destination: CreateAccountView()){
                                 Text("Create New Account")
                                 .tint(.blue)
                             }

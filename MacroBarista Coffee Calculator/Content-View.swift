@@ -8,9 +8,12 @@ extension ContentView{
         @AppStorage("AUTH_KEY") var authenticated = false {
             willSet{objectWillChange.send() }
         }
-        @AppStorage("USER_KEY") var username = "username"
+        @AppStorage("USER_KEY") var username = ""
         @Published var password = ""
         @Published var invalid: Bool = false
+        @Published var fname = ""
+        @Published var lname = ""
+        @Published var email = ""
         //Future admin user, testpass only usuable in class viewmodel
         //toggles authentication, user does not need to log back in if closes the app
         func toggleAuthentication(){
