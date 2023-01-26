@@ -1,15 +1,10 @@
-//
-//  CreateAccount View.swift
-//  MacroBarista Coffee Calculator
-//
-//  Created by Logan Brown on 1/22/23.
-//
-
 import SwiftUI
 import Firebase
 
 struct CreateAccountView: View {
     @StateObject var vm = ViewModel()
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         NavigationView {
             ZStack{
@@ -23,6 +18,7 @@ struct CreateAccountView: View {
                         .font(.system(size:36, weight:.medium, design:.rounded))
                         .frame(height: 30, alignment: .leading)
                     HStack(spacing: 15){
+        
                         TextBoxView(text: $vm.fname ,placeholder: "First name", keyboard: .default, sfSymbol: nil)
                         TextBoxView(text: $vm.lname ,placeholder: "Last name", keyboard: .default, sfSymbol: nil)
                     }
@@ -47,6 +43,7 @@ struct CreateAccountView: View {
                     }
                 }
                 .frame(maxWidth: 405)
+                .applyClose()
             }
         }
     }

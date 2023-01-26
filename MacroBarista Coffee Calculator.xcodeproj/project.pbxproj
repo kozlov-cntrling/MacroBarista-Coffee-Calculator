@@ -10,6 +10,7 @@
 		8330B9192980FAAB000CAC04 /* TextBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330B9182980FAAB000CAC04 /* TextBoxView.swift */; };
 		8330B91B29819353000CAC04 /* PasswordBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330B91A29819353000CAC04 /* PasswordBoxView.swift */; };
 		8330B91D2981975C000CAC04 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330B91C2981975C000CAC04 /* ForgotPasswordView.swift */; };
+		8330B9212982C750000CAC04 /* CloseMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330B9202982C750000CAC04 /* CloseMod.swift */; };
 		8372147C297F91060040F2E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8372147B297F91050040F2E9 /* GoogleService-Info.plist */; };
 		837A5F5B297A09C7000238D3 /* Content-View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F5A297A09C7000238D3 /* Content-View.swift */; };
 		837A5F64297DA6F2000238D3 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 837A5F63297DA6F2000238D3 /* FirebaseAnalyticsSwift */; };
@@ -52,6 +53,7 @@
 		8330B9182980FAAB000CAC04 /* TextBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBoxView.swift; sourceTree = "<group>"; };
 		8330B91A29819353000CAC04 /* PasswordBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordBoxView.swift; sourceTree = "<group>"; };
 		8330B91C2981975C000CAC04 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		8330B9202982C750000CAC04 /* CloseMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseMod.swift; sourceTree = "<group>"; };
 		8372147B297F91050040F2E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8372147D297F910D0040F2E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		837A5F5A297A09C7000238D3 /* Content-View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content-View.swift"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				8330B91C2981975C000CAC04 /* ForgotPasswordView.swift */,
 				8330B9182980FAAB000CAC04 /* TextBoxView.swift */,
 				8330B91A29819353000CAC04 /* PasswordBoxView.swift */,
+				8330B9202982C750000CAC04 /* CloseMod.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				837A5F71297DD233000238D3 /* CreateAccountView.swift in Sources */,
 				837A5F75297DDA84000238D3 /* CreateAccountController.swift in Sources */,
 				8330B9192980FAAB000CAC04 /* TextBoxView.swift in Sources */,
+				8330B9212982C750000CAC04 /* CloseMod.swift in Sources */,
 				8330B91B29819353000CAC04 /* PasswordBoxView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
