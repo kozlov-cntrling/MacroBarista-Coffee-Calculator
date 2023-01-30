@@ -2,7 +2,10 @@ import SwiftUI
 import Firebase
 
 struct ContentView: View {
+    @State private var showCreateAccount =  false
+    @State private var showForgotPassword =  false
     @StateObject var vm = ViewModel()
+    @EnvironmentObject var SessionService: SessionServiceImp
     var body: some View {
         
         if !vm.authenticated{
@@ -40,12 +43,12 @@ struct ContentView: View {
                             }
                             .transition(.scale)
                             Spacer()
+                            //todo: functionality
                             Button("Login", action: vm.authenticate)
                                 .buttonStyle(.borderedProminent)
                             Spacer()
                         }
-                        Button("Forgot password?", action:vm.testPress)
-                            .tint(.blue)
+                        Button("Forgot password?", action:{})
                         Spacer()
                         Spacer()
                         Spacer()
@@ -65,5 +68,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(SessionServiceImp())
     }
 }

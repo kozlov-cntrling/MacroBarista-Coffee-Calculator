@@ -2,9 +2,11 @@ import SwiftUI
 import Firebase
 
 struct CreateAccountView: View {
-    @StateObject var vm = ViewModel()
+    //TODO: Make strings parse to createaccountdetails
+    @StateObject var vm = CreateAccountVMImp(
+        service: CreateAccountServiceImp()
+    )
     @Environment(\.presentationMode) var presentationMode
-    
     var body: some View {
         NavigationView {
             ZStack{
@@ -19,20 +21,20 @@ struct CreateAccountView: View {
                         .frame(height: 30, alignment: .leading)
                     HStack(spacing: 15){
         
-                        TextBoxView(text: $vm.fname ,placeholder: "First name", keyboard: .default, sfSymbol: nil)
-                        TextBoxView(text: $vm.lname ,placeholder: "Last name", keyboard: .default, sfSymbol: nil)
+                        TextBoxView(text: $vm.userdetails.fname ,placeholder: "First name", keyboard: .default, sfSymbol: nil)
+                        TextBoxView(text: $vm.userdetails.lname ,placeholder: "Last name", keyboard: .default, sfSymbol: nil)
                     }
                     .frame(maxWidth: 405)
-                    TextBoxView(text: $vm.email, placeholder: "Email", keyboard: .emailAddress, sfSymbol: "envelope")
+                    TextBoxView(text: $vm.userdetails.email, placeholder: "Email", keyboard: .emailAddress, sfSymbol: "envelope")
                             .textInputAutocapitalization(.never)
-                    TextBoxView(text: $vm.username, placeholder: "Username", keyboard: .emailAddress, sfSymbol: "person")
+                    TextBoxView(text: $vm.userdetails.username, placeholder: "Username", keyboard: .emailAddress, sfSymbol: "person")
                             .textInputAutocapitalization(.never)
-                    PasswordBoxView(password: $vm.password,placeholder: "Password", sfSymbol: "lock.fill")
+                    PasswordBoxView(password: $vm.userdetails.password,placeholder: "Password", sfSymbol: "lock.fill")
                             .textInputAutocapitalization(.never)
                     HStack(alignment: .center,spacing:5){
                         Spacer()
                         Button{
-                            register()
+                            vm.register()
                         } label: {
                             Text("Create New Account")
                                 .font(.system(size:20, weight:.medium, design:.rounded))

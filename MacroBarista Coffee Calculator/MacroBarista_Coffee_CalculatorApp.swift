@@ -12,10 +12,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct MacroBarista_Coffee_CalculatorApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject var SessionService = SessionServiceImp()
+    
     var body: some Scene {
         WindowGroup {
             NavigationView{
-                ContentView()
+                switch SessionService.state {
+                case .loggedIn:
+                    HomeView()
+                case .loggedOut:
+                    ContentView()
+                }
             }
         }
     }

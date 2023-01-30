@@ -16,7 +16,7 @@ extension CreateAccountView{
         @Published var email = ""
     }
     func register(){
-        Auth.auth().createUser(withEmail: vm.email, password: vm.password){ result, error in
+        Auth.auth().createUser(withEmail: vm.userdetails.email, password: vm.userdetails.password){ result, error in
             if error != nil {
                 print(error!.localizedDescription)
             }

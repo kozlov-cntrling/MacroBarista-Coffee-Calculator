@@ -11,6 +11,9 @@
 		8330B91B29819353000CAC04 /* PasswordBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330B91A29819353000CAC04 /* PasswordBoxView.swift */; };
 		8330B91D2981975C000CAC04 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330B91C2981975C000CAC04 /* ForgotPasswordView.swift */; };
 		8330B9212982C750000CAC04 /* CloseMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330B9202982C750000CAC04 /* CloseMod.swift */; };
+		8330B9282983065B000CAC04 /* NewAccountDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330B9272983065B000CAC04 /* NewAccountDetails.swift */; };
+		8330B92A298306F3000CAC04 /* CreateAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330B929298306F3000CAC04 /* CreateAccountService.swift */; };
+		833A53E8298438EA004020D5 /* CreateAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833A53E7298438EA004020D5 /* CreateAccountVM.swift */; };
 		8372147C297F91060040F2E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8372147B297F91050040F2E9 /* GoogleService-Info.plist */; };
 		837A5F5B297A09C7000238D3 /* Content-View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F5A297A09C7000238D3 /* Content-View.swift */; };
 		837A5F64297DA6F2000238D3 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 837A5F63297DA6F2000238D3 /* FirebaseAnalyticsSwift */; };
@@ -23,6 +26,9 @@
 		837A5F72297DD233000238D3 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F70297DD233000238D3 /* CreateAccountView.swift */; };
 		837A5F73297DD233000238D3 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F70297DD233000238D3 /* CreateAccountView.swift */; };
 		837A5F75297DDA84000238D3 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F74297DDA84000238D3 /* CreateAccountController.swift */; };
+		839A152E2984852F00E8EE89 /* SessionUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A152D2984852F00E8EE89 /* SessionUserDetails.swift */; };
+		839A1531298485A400E8EE89 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A1530298485A400E8EE89 /* SessionService.swift */; };
+		839A15332984E44400E8EE89 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A15322984E44400E8EE89 /* HomeView.swift */; };
 		83B799212979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B799202979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift */; };
 		83B799232979BBB800A233FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B799222979BBB800A233FB /* ContentView.swift */; };
 		83B799252979BBBF00A233FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83B799242979BBBF00A233FB /* Assets.xcassets */; };
@@ -54,11 +60,17 @@
 		8330B91A29819353000CAC04 /* PasswordBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordBoxView.swift; sourceTree = "<group>"; };
 		8330B91C2981975C000CAC04 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		8330B9202982C750000CAC04 /* CloseMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseMod.swift; sourceTree = "<group>"; };
+		8330B9272983065B000CAC04 /* NewAccountDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountDetails.swift; sourceTree = "<group>"; };
+		8330B929298306F3000CAC04 /* CreateAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountService.swift; sourceTree = "<group>"; };
+		833A53E7298438EA004020D5 /* CreateAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVM.swift; sourceTree = "<group>"; };
 		8372147B297F91050040F2E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8372147D297F910D0040F2E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		837A5F5A297A09C7000238D3 /* Content-View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content-View.swift"; sourceTree = "<group>"; };
 		837A5F70297DD233000238D3 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		837A5F74297DDA84000238D3 /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
+		839A152D2984852F00E8EE89 /* SessionUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUserDetails.swift; sourceTree = "<group>"; };
+		839A1530298485A400E8EE89 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		839A15322984E44400E8EE89 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		83B7991D2979BBB800A233FB /* MacroBarista Coffee Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MacroBarista Coffee Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B799202979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroBarista_Coffee_CalculatorApp.swift; sourceTree = "<group>"; };
 		83B799222979BBB800A233FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,17 +115,97 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8330B9242982E860000CAC04 /* Create Account */ = {
+			isa = PBXGroup;
+			children = (
+				833A53E6298438BB004020D5 /* ViewModel */,
+				837A5F70297DD233000238D3 /* CreateAccountView.swift */,
+				8330B9272983065B000CAC04 /* NewAccountDetails.swift */,
+				8330B929298306F3000CAC04 /* CreateAccountService.swift */,
+				837A5F74297DDA84000238D3 /* CreateAccountController.swift */,
+			);
+			path = "Create Account";
+			sourceTree = "<group>";
+		};
+		8330B9252982E87A000CAC04 /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				8330B91C2981975C000CAC04 /* ForgotPasswordView.swift */,
+			);
+			path = "Forgot Password";
+			sourceTree = "<group>";
+		};
+		8330B9262982E89A000CAC04 /* Login Screen */ = {
+			isa = PBXGroup;
+			children = (
+				837A5F5A297A09C7000238D3 /* Content-View.swift */,
+				83B799222979BBB800A233FB /* ContentView.swift */,
+			);
+			path = "Login Screen";
+			sourceTree = "<group>";
+		};
+		833A53E6298438BB004020D5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				833A53E7298438EA004020D5 /* CreateAccountVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		837A5F6F297DD0E1000238D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				83B799222979BBB800A233FB /* ContentView.swift */,
-				837A5F70297DD233000238D3 /* CreateAccountView.swift */,
-				8330B91C2981975C000CAC04 /* ForgotPasswordView.swift */,
+				839A15342984E44B00E8EE89 /* Home Screen */,
+				8330B9262982E89A000CAC04 /* Login Screen */,
+				8330B9252982E87A000CAC04 /* Forgot Password */,
+				8330B9242982E860000CAC04 /* Create Account */,
 				8330B9182980FAAB000CAC04 /* TextBoxView.swift */,
 				8330B91A29819353000CAC04 /* PasswordBoxView.swift */,
 				8330B9202982C750000CAC04 /* CloseMod.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		839A152A298484E900E8EE89 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				839A152B2984850200E8EE89 /* Session */,
+				837A5F6F297DD0E1000238D3 /* Views */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		839A152B2984850200E8EE89 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				839A152F2984858700E8EE89 /* Service */,
+				839A152C2984851200E8EE89 /* Model */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		839A152C2984851200E8EE89 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				839A152D2984852F00E8EE89 /* SessionUserDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		839A152F2984858700E8EE89 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				839A1530298485A400E8EE89 /* SessionService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		839A15342984E44B00E8EE89 /* Home Screen */ = {
+			isa = PBXGroup;
+			children = (
+				839A15322984E44400E8EE89 /* HomeView.swift */,
+			);
+			path = "Home Screen";
 			sourceTree = "<group>";
 		};
 		83B799142979BBB800A233FB = {
@@ -140,10 +232,8 @@
 		83B7991F2979BBB800A233FB /* MacroBarista Coffee Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				839A152A298484E900E8EE89 /* Feature */,
 				83B799202979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift */,
-				837A5F5A297A09C7000238D3 /* Content-View.swift */,
-				837A5F74297DDA84000238D3 /* CreateAccountController.swift */,
-				837A5F6F297DD0E1000238D3 /* Views */,
 				83B799242979BBBF00A233FB /* Assets.xcassets */,
 				83B799262979BBBF00A233FB /* MacroBarista_Coffee_Calculator.entitlements */,
 				8372147B297F91050040F2E9 /* GoogleService-Info.plist */,
@@ -319,12 +409,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				839A152E2984852F00E8EE89 /* SessionUserDetails.swift in Sources */,
+				8330B92A298306F3000CAC04 /* CreateAccountService.swift in Sources */,
+				839A1531298485A400E8EE89 /* SessionService.swift in Sources */,
+				839A15332984E44400E8EE89 /* HomeView.swift in Sources */,
 				83B799232979BBB800A233FB /* ContentView.swift in Sources */,
+				8330B9282983065B000CAC04 /* NewAccountDetails.swift in Sources */,
 				837A5F5B297A09C7000238D3 /* Content-View.swift in Sources */,
 				8330B91D2981975C000CAC04 /* ForgotPasswordView.swift in Sources */,
 				83B799212979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift in Sources */,
 				837A5F71297DD233000238D3 /* CreateAccountView.swift in Sources */,
 				837A5F75297DDA84000238D3 /* CreateAccountController.swift in Sources */,
+				833A53E8298438EA004020D5 /* CreateAccountVM.swift in Sources */,
 				8330B9192980FAAB000CAC04 /* TextBoxView.swift in Sources */,
 				8330B9212982C750000CAC04 /* CloseMod.swift in Sources */,
 				8330B91B29819353000CAC04 /* PasswordBoxView.swift in Sources */,
