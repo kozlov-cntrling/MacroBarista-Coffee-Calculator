@@ -13,8 +13,10 @@ import Firebase
 struct ForgotPasswordView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.presentationMode) var presentationMode
-    @State private var emailSent = false
-    @State private var emailError = false
+    
+    @StateObject private var vm = ForgotPasswordVMImp(
+        service: ForgotPasswordServiceImp()
+    )
     
     var body: some View {
         NavigationView{
@@ -30,14 +32,17 @@ struct ForgotPasswordView: View {
                         .font(.system(size:36, weight:.medium, design:.rounded))
                         .frame(height: 30)
                         .frame(maxWidth: 305)
-                    TextBoxView(text: .constant("example.person@gmail.com") ,placeholder: "Email", keyboard: .emailAddress, sfSymbol: "envelope.fill")
+                    TextBoxView(text: $vm.email, placeholder: "Email", keyboard: .emailAddress, sfSymbol: "envelope.fill")
                     
-                    Button("Send Password Reset", action:{})
+                    Button("Send Password Reset", action:{
+                        vm.sendPasswordReset()
+                        presentationMode.wrappedValue.dismiss()
+                    })
                         .frame(maxWidth: .infinity, minHeight: 10)
                         .buttonStyle(.borderedProminent)
-                    //Verifies and notifies user if email is valid
                 }
             }
+            .padding(.horizontal, 15)
             .applyClose()
         }
     }

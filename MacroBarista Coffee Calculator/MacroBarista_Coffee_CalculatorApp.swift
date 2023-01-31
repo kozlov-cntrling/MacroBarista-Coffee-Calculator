@@ -19,7 +19,8 @@ struct MacroBarista_Coffee_CalculatorApp: App {
             NavigationView{
                 switch SessionService.state {
                 case .loggedIn:
-                    HomeView()
+                    Homepage()
+                        .environmentObject(SessionService)
                 case .loggedOut:
                     ContentView()
                 }

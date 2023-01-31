@@ -2,7 +2,6 @@ import SwiftUI
 import Firebase
 
 struct CreateAccountView: View {
-    //TODO: Make strings parse to createaccountdetails
     @StateObject var vm = CreateAccountVMImp(
         service: CreateAccountServiceImp()
     )
