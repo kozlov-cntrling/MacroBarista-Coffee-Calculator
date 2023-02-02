@@ -12,6 +12,7 @@ import Foundation
 enum AccountKeys: String{
     case fname
     case lname
+    case username
 }
 
 protocol CreateAccountService{
@@ -30,7 +31,8 @@ func NewAccount(with detiails:NewAccountDetails) -> AnyPublisher<Void, Error>{
                     //Sucessfully created user
                     if let uid = res?.user.uid{
                         let values = [AccountKeys.fname.rawValue: detiails.fname,
-                                      AccountKeys.lname.rawValue: detiails.lname] as [String:Any]
+                                      AccountKeys.lname.rawValue: detiails.lname,
+                                      AccountKeys.lname.rawValue: detiails.username] as [String:Any]
                         Database.database()
                             .reference()
                             .child("users")
@@ -58,4 +60,5 @@ func NewAccount(with detiails:NewAccountDetails) -> AnyPublisher<Void, Error>{
     .eraseToAnyPublisher()
     }
 }
+
 

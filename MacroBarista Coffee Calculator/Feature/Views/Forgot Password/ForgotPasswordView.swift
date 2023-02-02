@@ -41,8 +41,8 @@ struct ForgotPasswordView: View {
                         .frame(maxWidth: .infinity, minHeight: 10)
                         .buttonStyle(.borderedProminent)
                 }
+                .padding(.horizontal, 15)
             }
-            .padding(.horizontal, 15)
             .applyClose()
         }
     }

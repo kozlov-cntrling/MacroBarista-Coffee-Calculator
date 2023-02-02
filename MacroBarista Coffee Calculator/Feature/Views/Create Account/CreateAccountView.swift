@@ -6,6 +6,7 @@ struct CreateAccountView: View {
         service: CreateAccountServiceImp()
     )
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationView {
             ZStack{
@@ -39,11 +40,12 @@ struct CreateAccountView: View {
                                 .font(.system(size:20, weight:.medium, design:.rounded))
                                 .padding()
                                 .underline()
+                            //TODO: Add visual error if error occurs
                         }
                         Spacer()
                     }
                 }
-                .frame(maxWidth: 405)
+                .padding(.horizontal, 15)
                 .applyClose()
             }
         }
