@@ -36,6 +36,6 @@ struct TextBoxView: View {
 }
 struct TextBoxView_Previews: PreviewProvider {
     static var previews: some View {
-        TextBoxView(text: .constant(""),placeholder: "Email", keyboard: .emailAddress, sfSymbol: "Envolope")
+        TextBoxView(text: .constant(""),placeholder: "Email", keyboard: .emailAddress, sfSymbol: "Envelope")
     }
 }

@@ -6,4 +6,7 @@
 //
 import Foundation
 
+protocol HomePageVM{
+    func getHPdrink()
+}
 

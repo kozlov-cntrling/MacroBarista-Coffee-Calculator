@@ -30,6 +30,7 @@ func NewAccount(with detiails:NewAccountDetails) -> AnyPublisher<Void, Error>{
                 } else {
                     //Sucessfully created user
                     if let uid = res?.user.uid{
+                        //TODO: Thread 1: Fatal error: Dictionary literal contains duplicate keys
                         let values = [AccountKeys.fname.rawValue: detiails.fname,
                                       AccountKeys.lname.rawValue: detiails.lname,
                                       AccountKeys.lname.rawValue: detiails.username] as [String:Any]
