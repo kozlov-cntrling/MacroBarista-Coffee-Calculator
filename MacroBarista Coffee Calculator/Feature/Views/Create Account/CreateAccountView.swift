@@ -33,15 +33,10 @@ struct CreateAccountView: View {
                             .textInputAutocapitalization(.never)
                     HStack(alignment: .center,spacing:5){
                         Spacer()
-                        Button{
+                        ButtonView(title: "Create Account", sfSymbol: "", width: 200){
                             vm.register()
-                        } label: {
-                            Text("Create New Account")
-                                .font(.system(size:20, weight:.medium, design:.rounded))
-                                .padding()
-                                .underline()
-                            //TODO: Add visual error if error occurs
                         }
+
                         Spacer()
                     }
                 }

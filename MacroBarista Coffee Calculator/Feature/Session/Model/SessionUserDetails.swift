@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//Strings that will be used to create a userkey
 struct SessionUserDetails {
     let fname: String
     let lname: String

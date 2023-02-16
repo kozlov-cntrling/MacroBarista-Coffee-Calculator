@@ -16,9 +16,11 @@ enum SessionState{
 }
 
 protocol SessionService {
-    //state
+    //Gets both session state cases above
     var state:SessionState {get}
+    //Gets both fname and lname
     var userDetails: SessionUserDetails? {get}
+
     func logOut()
 }
 
@@ -26,22 +28,24 @@ final class SessionServiceImp: ObservableObject, SessionService {
     @Published var state: SessionState = .loggedOut
     @Published var userDetails: SessionUserDetails?
     
+    //Auth State changing is optional
     private var handler: AuthStateDidChangeListenerHandle?
     
+    //Initializes function from private extension
     init(){
         setupFireBaseAuthHandler()
     }
-    
+    //Tries auth.signOut, TODO: add network error handler
     func logOut() {
         try? Auth.auth().signOut()
     }
 }
+//Private portion of class SessionServiceIMP, hence why it is extended
 private extension SessionServiceImp {
     func setupFireBaseAuthHandler(){
         
-        handler = Auth
-            .auth()
-            .addStateDidChangeListener{[weak self] res, user in
+        handler = Auth.auth()
+            .addStateDidChangeListener{[weak self] result, user in
                 guard let self = self else {return}
                 //checks user, if nil then loggedout, if not nil then loggedin
                 self.state = user == nil ? .loggedOut : .loggedIn
