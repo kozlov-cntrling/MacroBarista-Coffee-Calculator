@@ -4,11 +4,9 @@
 import Firebase
 import SwiftUI
 
-enum Screen{
-    case savedRecipes
-    case calculator
-}
 struct Homepage: View {
+    @EnvironmentObject var SessionService: SessionServiceImp
+    
     @State private var showCreateAccount: Bool = false
     @State private var showForgotPassword: Bool = false
     
@@ -17,8 +15,6 @@ struct Homepage: View {
     
     @State var selectedDrinkSize: drinkSizeRefresher? = Optional.none
     @State var selectedDrinkSizeFrapp: drinkSizeFrapp? = Optional.none
-    
-    @EnvironmentObject var SessionService: SessionServiceImp
     
     @State public var Calories: Int = 0
     
@@ -64,7 +60,9 @@ struct Homepage: View {
                     .resizable()
                     .cornerRadius(20)
                     .ignoresSafeArea()
+                
                 VStack(){
+                    
                     Spacer().frame(height:15)
                     Text("What're you drinking?")
                         .fontWeight(.light)
@@ -616,7 +614,7 @@ struct Homepage: View {
                             NavigationLink(destination: FinalCalculation_View()){
                                 HStack{
                                     Spacer()
-                                    ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 40) {
+                                    ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 70) {
                                     }
                                 }
                             }

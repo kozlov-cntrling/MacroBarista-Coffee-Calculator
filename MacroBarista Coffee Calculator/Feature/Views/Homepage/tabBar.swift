@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct tabBar: View {
+    
     @State var current = 1
     init() {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)], for: .normal)

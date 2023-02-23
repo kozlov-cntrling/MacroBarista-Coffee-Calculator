@@ -31,6 +31,7 @@ enum SaveRecipeState {
     case fail(error:Error)
     case NA
 }
+
 //TODO: create returns based on string values and selections
 final class CreateRecipeVMImp: ObservableObject, FetchRecipe{
     var state: FetchRecipeState

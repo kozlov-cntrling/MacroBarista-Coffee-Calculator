@@ -1,6 +1,6 @@
 import SwiftUI
 import Firebase
-
+//TODO: add login with appleID/Google
 struct ContentView: View {
     @State private var showCreateAccount =  false
     @State private var showForgotPassword =  false
@@ -20,24 +20,39 @@ struct ContentView: View {
                     VStack(alignment: .leading){
                         Image("login-logo")
                             .resizable()
-                            .frame(minWidth: 0, maxHeight: 290, alignment: .topLeading)
-                        if vm.hasError == true{
+                            .frame(maxHeight: 290, alignment: .topLeading)
+                            .frame(width:310)
+                        //Visual login error handling
+                        if vm.hasError{
                             HStack(alignment: .center){
                             Text("Login")
                                 .font(.system(size: 40, weight: .medium, design: .rounded))
                                 .foregroundColor(.white)
                                 VStack(){
-                                    Spacer().frame(height:20)
-                                    Text("*Wrong email or password")
+                                    //TODO: make error more pretty, add border box, and red info sfSymbol, and change error font
+                                    if case .fail(let error) = vm.state{
+                                        HStack(alignment: .center){
+                                            Image(systemName:"exclamationmark.triangle.fill")
+                                                .foregroundColor(Color.red.opacity(1))
+                                            Text(error.localizedDescription)
+                                                .foregroundColor(Color.red.opacity(0.8))
+                                        }
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 30, style: .continuous)
+                                                .stroke(Color.red, lineWidth: 4)
+                                                .opacity(0.3)
+                                        )
                                         .font(.system(size: 15, weight: .medium, design: .rounded))
-                                        .foregroundColor(Color.red.opacity(0.8))
-                                        .frame(maxWidth: .infinity, alignment: .bottomTrailing)
+                                        .frame(maxWidth: .infinity, alignment: .trailing)
+                                    } else {
+                                    }
                                 }
                             }
                             TextBoxView(text: $vm.credentials.email, placeholder: "Email", keyboard: .emailAddress, sfSymbol: "envelope.fill")
                                 .textInputAutocapitalization(.never)
                             PasswordBoxView(password: $vm.credentials.password,placeholder: "Password", sfSymbol: "lock.fill")
                                 .textInputAutocapitalization(.never)
+                            
                         } else {
                             Text("Login")
                                 .font(.system(size: 40, weight: .medium, design: .rounded))
@@ -72,7 +87,7 @@ struct ContentView: View {
                     }
                     .frame(width:310)
                     .padding()
-                    .frame(minWidth: 310, maxHeight: .infinity, alignment: .topLeading)
+                    .frame(maxHeight: .infinity, alignment: .topLeading)
                 }
                 .transition(.scale)
         }

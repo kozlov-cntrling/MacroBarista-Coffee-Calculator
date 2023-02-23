@@ -9,9 +9,9 @@ import Foundation
 import Combine
 
 enum LoginState{
-    case successful
-    case failed(error:Error)
-    case na
+    case success
+    case fail(error:Error)
+    case NA
 }
 
 protocol LoginVM{
@@ -25,7 +25,7 @@ protocol LoginVM{
 
 final class LoginViewModelImp: ObservableObject, LoginVM {
     
-    @Published var state: LoginState = .na
+    @Published var state: LoginState = .NA
     @Published var credentials: LoginCredentials = LoginCredentials.new
     @Published var hasError: Bool = false
     
@@ -45,12 +45,12 @@ final class LoginViewModelImp: ObservableObject, LoginVM {
                 
                 switch res {
                 case .failure(let err):
-                    self.state = .failed(error: err)
+                    self.state = .fail(error: err)
                 default: break
                 }
                 
             } receiveValue: { [weak self] in
-                self?.state = .successful
+                self?.state = .success
             }
             .store(in:&subscription)
     }
@@ -63,10 +63,10 @@ private extension LoginViewModelImp {
         $state
             .map { state -> Bool in
                 switch state {
-                case .successful,
-                        .na:
+                case .success,
+                        .NA:
                     return false
-                case .failed:
+                case .fail:
                     return true
                 }
             }

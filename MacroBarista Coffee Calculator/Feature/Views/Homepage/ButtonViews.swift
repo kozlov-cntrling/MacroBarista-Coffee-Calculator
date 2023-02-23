@@ -53,7 +53,7 @@ struct ButtonView: View {
     }
 }
 
-struct  ImgButtonView: View {
+struct ImgButtonView: View {
     
     typealias ActionHandler = () -> Void
     
@@ -78,14 +78,12 @@ struct  ImgButtonView: View {
         Button(action: handler,
                label: {
             VStack(alignment: .center){
-                if image != nil{
-                    Image(image)
-                        .resizable()
-                        .scaledToFit()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: width)
-                        .clipShape(Circle())
-                }
+                Image(image)
+                    .resizable()
+                    .scaledToFit()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: width)
+                    .clipShape(Circle())
                 Text(title)
             }
         })

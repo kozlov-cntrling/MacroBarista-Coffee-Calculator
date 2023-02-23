@@ -20,3 +20,4 @@ extension NewAccountDetails{
         NewAccountDetails(email: "", username: "", password: "", fname: "", lname: "")
     }
 }
+

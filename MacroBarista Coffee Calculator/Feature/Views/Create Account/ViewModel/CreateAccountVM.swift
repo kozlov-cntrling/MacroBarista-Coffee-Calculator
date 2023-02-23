@@ -1,6 +1,6 @@
 import Foundation
 import Combine
-//TODO: add visual error
+
 enum CreateAccountState{
     case success
     case fail(error:Error)
@@ -10,13 +10,15 @@ enum CreateAccountState{
 protocol CreateAccountVM {
 
     func register()
+    
     var service: CreateAccountService {get}
-    //handles changes in VM
+    
     var state:  CreateAccountState {get}
-    //binds field input into database
+    
     var userdetails: NewAccountDetails {get}
-    //initalizer injects service into VM
+    
     var hasError: Bool {get}
+    //Init runs newAccount function
     init(service: CreateAccountService)
 }
 
@@ -37,8 +39,8 @@ final class CreateAccountVMImp: ObservableObject, CreateAccountVM {
 
     func register() {
         service
-        //gets value from publisher
             .NewAccount(with: userdetails)
+        //sink
             .sink{ [weak self] res in
                 //based on result, switches state from success or fail
                 switch res{
@@ -52,5 +54,17 @@ final class CreateAccountVMImp: ObservableObject, CreateAccountVM {
             .store(in: &Subscriptions)
     }
     func setupErrorSubscription() {
+        
+        $state
+            .map { state -> Bool in
+                switch state {
+                case .success,
+                        .NA:
+                    return false
+                case .fail:
+                    return true
+                }
+            }
+            .assign(to: &$hasError)
     }
 }
