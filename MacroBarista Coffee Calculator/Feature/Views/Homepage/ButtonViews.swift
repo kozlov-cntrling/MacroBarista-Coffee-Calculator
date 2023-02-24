@@ -134,8 +134,5 @@ struct ImgBtnContainer_Previews: PreviewProvider {
         Group{
             ImgButtonView(title: "Frapp", image: "coffee", width: 100) {}
         }
-        Group{
-            InactiveImgButtonView(title: "Frapp", image: "coffee", width: 100) {}
-        }
     }
 }

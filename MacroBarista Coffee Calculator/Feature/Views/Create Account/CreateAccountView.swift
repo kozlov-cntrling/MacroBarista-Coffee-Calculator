@@ -65,8 +65,8 @@ struct CreateAccountView: View {
                     }
                 }
                 .padding(.horizontal, 15)
-                .applyClose()
             }
+            .applyClose()
         }
     }
 }

@@ -37,9 +37,11 @@ struct ContentView: View {
                                             Text(error.localizedDescription)
                                                 .foregroundColor(Color.red.opacity(0.8))
                                         }
+                                        .padding(5)
                                         .overlay(
-                                            RoundedRectangle(cornerRadius: 30, style: .continuous)
+                                            RoundedRectangle(cornerRadius: 10, style: .continuous)
                                                 .stroke(Color.red, lineWidth: 4)
+                                                .background(RoundedRectangle(cornerSize: CGSize()).fill(.red).opacity(0.45))
                                                 .opacity(0.3)
                                         )
                                         .font(.system(size: 15, weight: .medium, design: .rounded))

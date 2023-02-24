@@ -14,12 +14,15 @@ struct FinalCalculation_View: View {
     var body: some View {
         ZStack{
             NavigationView(){
-                Image("background")
-                    .resizable()
-                    .cornerRadius(20)
-                    .ignoresSafeArea()
+                ZStack(alignment: .topLeading){
+                    Image("background")
+                        .resizable()
+                        .cornerRadius(20)
+                        .ignoresSafeArea()
+                    Text("Finish your new drink!")
+                        .padding(30)
+                }
             }
-            .navigationTitle("")
         }
     }
 }

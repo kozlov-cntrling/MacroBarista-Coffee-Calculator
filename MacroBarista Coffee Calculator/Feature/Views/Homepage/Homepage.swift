@@ -10,10 +10,10 @@ struct Homepage: View {
     @State private var showCreateAccount: Bool = false
     @State private var showForgotPassword: Bool = false
     
-    @State var selectedDrinkIceAmount: drinkIceAmount?  = .none
-    @State var selectedBaseDrinkType: baseDrinkType?  = .none
+    @State var selectedDrinkIceAmount: drinkIceAmount?  = Optional.none
+    @State var selectedBaseDrinkType: baseDrinkType?  = Optional.none
     
-    @State public var selectedDrinkSize: drinkSizeRefresher? = .none
+    @State public var selectedDrinkSize: drinkSizeRefresher? = Optional.none
     @State public var selectedDrinkSizeFrapp: drinkSizeFrapp = .none
     @State public var selectedDrinkSizeEspresso: drinkSizeEspresso = .none
     
@@ -79,7 +79,7 @@ struct Homepage: View {
                     HStack(alignment: .center,spacing:15){
                         Button{
                             selectedBaseDrinkType = .Frappuicino
-                            //TODO: finish calorie counter
+                            //TODO: finish calorie counterz
                             if selectedBaseDrinkType == .Frappuicino {
                                 Calories += 0
                             } else {
@@ -88,7 +88,14 @@ struct Homepage: View {
                             
                         } label: {
                             if selectedBaseDrinkType != .Frappuicino {
-                                InactiveImgButtonView(title: "Frappuicino", image: "coffee", width: 80) {
+                                VStack{
+                                    Image("coffee")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxWidth: 80)
+                                        .clipShape(Circle())
+                                    Text("Frappuicino")
                                 }
                             } else {
                                 ImgButtonView(title: "Frappuicino", image: "coffee", width: 100) {
@@ -107,7 +114,14 @@ struct Homepage: View {
                             
                         } label: {
                             if selectedBaseDrinkType != .Espresso {
-                                InactiveImgButtonView(title: "Espresso", image: "coffee", width: 80) {
+                                VStack{
+                                    Image("coffee")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxWidth: 80)
+                                        .clipShape(Circle())
+                                    Text("Espresso")
                                 }
                             } else {
                                 ImgButtonView(title: "Espresso", image: "coffee", width: 100) {
@@ -125,7 +139,14 @@ struct Homepage: View {
                             
                         } label: {
                             if selectedBaseDrinkType != .Coffee {
-                                InactiveImgButtonView(title: "Coffee/Tea", image: "coffee", width: 80) {
+                                VStack{
+                                    Image("coffee")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxWidth: 80)
+                                        .clipShape(Circle())
+                                    Text("Coffee/Tea")
                                 }
                             } else {
                                 ImgButtonView(title: "Coffee/Tea", image: "coffee", width: 100) {
@@ -144,8 +165,14 @@ struct Homepage: View {
                             
                         } label: {
                             if selectedBaseDrinkType != .Refresher{
-                                InactiveImgButtonView(title: "Refresher", image: "coffee", width: 80) {
-                                    
+                                VStack{
+                                    Image("coffee")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxWidth: 80)
+                                        .clipShape(Circle())
+                                    Text("Refresher")
                                 }
                             } else {
                                 ImgButtonView(title: "Refresher", image: "coffee", width: 100) {
@@ -165,7 +192,7 @@ struct Homepage: View {
                                         .foregroundColor(.blue)
                                 }
                             }
-                            .pickerStyle(.inline)
+                            .pickerStyle(.menu)
                             NavigationLink(destination: FinalCalculation_View()){
                                 HStack{
                                     Spacer()
@@ -285,6 +312,17 @@ struct Homepage: View {
                                     }
                                 }
                             }
+                            if selectedBaseDrinkType == .Espresso{
+                                if selectedDrinkSizeEspresso != .none{
+                                    NavigationLink(destination: FinalCalculation_View()){
+                                        HStack{
+                                            Spacer()
+                                            ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width:60) {
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                     //FRAPP ACTIVE
@@ -295,56 +333,6 @@ struct Homepage: View {
                                 .font(.title)
                                 .padding()
                             HStack(alignment: .center,spacing:15){
-                                
-                                Button{
-                                    selectedDrinkSizeFrapp = .Tall
-                                    //TODO: finish calorie counter
-                                    if selectedDrinkSizeFrapp == .Tall {
-                                        Calories += 0
-                                    } else {
-                                        Calories -= 0
-                                    }
-                                } label: {
-                                    if selectedDrinkSizeFrapp != .Tall{
-                                        VStack{
-                                            Image("coffee")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(maxWidth: 80)
-                                                .clipShape(Circle())
-                                            Text("Tall")
-                                        }
-                                    } else {
-                                        ImgButtonView(title: "Tall", image: "coffee", width: 80) {
-                                        }
-                                    }
-                                }
-                                Button{
-                                    selectedDrinkSizeFrapp = .Grande
-                                    //TODO: finish calorie counter
-                                    if selectedDrinkSizeFrapp == .Grande {
-                                        Calories += 0
-                                    } else {
-                                        Calories -= 0
-                                    }
-                                    
-                                } label: {
-                                    if selectedDrinkSizeFrapp != .Grande {
-                                        VStack{
-                                            Image("coffee")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(maxWidth: 90)
-                                                .clipShape(Circle())
-                                            Text("Grande")
-                                        }
-                                    } else {
-                                        ImgButtonView(title: "Grande", image: "coffee", width: 90) {
-                                        }
-                                    }
-                                }
                                 Button{
                                     selectedDrinkSizeFrapp = .Venti
                                     //TODO: finish calorie counter
@@ -367,6 +355,55 @@ struct Homepage: View {
                                         }
                                     } else {
                                         ImgButtonView(title: "Venti", image: "coffee", width: 98) {
+                                        }
+                                    }
+                                }
+                                Button{
+                                    selectedDrinkSizeFrapp = .Grande
+                                    //TODO: finish calorie counter
+                                    if selectedDrinkSizeFrapp == .Grande {
+                                        Calories += 0
+                                    } else {
+                                        Calories -= 0
+                                    }
+
+                                } label: {
+                                    if selectedDrinkSizeFrapp != .Grande {
+                                        VStack{
+                                            Image("coffee")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(maxWidth: 90)
+                                                .clipShape(Circle())
+                                            Text("Grande")
+                                        }
+                                    } else {
+                                        ImgButtonView(title: "Grande", image: "coffee", width: 90) {
+                                        }
+                                    }
+                                }
+                                Button{
+                                    selectedDrinkSizeFrapp = .Tall
+                                    //TODO: finish calorie counter
+                                    if selectedDrinkSizeFrapp == .Tall {
+                                        Calories += 0
+                                    } else {
+                                        Calories -= 0
+                                    }
+                                } label: {
+                                    if selectedDrinkSizeFrapp != .Tall{
+                                        VStack{
+                                            Image("coffee")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(maxWidth: 80)
+                                                .clipShape(Circle())
+                                            Text("Tall")
+                                        }
+                                    } else {
+                                        ImgButtonView(title: "Tall", image: "coffee", width: 80) {
                                         }
                                     }
                                 }
@@ -610,8 +647,8 @@ struct Homepage: View {
                         }
                     }
                     //Next button APPEARS when refresher is selected
-                    if selectedDrinkSize != Optional.none{
-                        if selectedBaseDrinkType == .Refresher{
+                    if selectedBaseDrinkType == .Refresher{
+                        if selectedDrinkSize != Optional.none{
                             NavigationLink(destination: FinalCalculation_View()){
                                 HStack{
                                     Spacer()
@@ -619,8 +656,6 @@ struct Homepage: View {
                                     }
                                 }
                             }
-                        } else {
-                            
                         }
                     }
                 }
