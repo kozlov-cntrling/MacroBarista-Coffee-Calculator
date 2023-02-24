@@ -10,11 +10,12 @@ struct Homepage: View {
     @State private var showCreateAccount: Bool = false
     @State private var showForgotPassword: Bool = false
     
-    @State var selectedDrinkIceAmount: drinkIceAmount?  = Optional.none
-    @State var selectedBaseDrinkType: baseDrinkType?  = Optional.none
+    @State var selectedDrinkIceAmount: drinkIceAmount?  = .none
+    @State var selectedBaseDrinkType: baseDrinkType?  = .none
     
-    @State var selectedDrinkSize: drinkSizeRefresher? = Optional.none
-    @State var selectedDrinkSizeFrapp: drinkSizeFrapp? = Optional.none
+    @State public var selectedDrinkSize: drinkSizeRefresher? = .none
+    @State public var selectedDrinkSizeFrapp: drinkSizeFrapp = .none
+    @State public var selectedDrinkSizeEspresso: drinkSizeEspresso = .none
     
     @State public var Calories: Int = 0
     
@@ -41,6 +42,13 @@ struct Homepage: View {
         case Venti = "venti"
         case Grande = "grande"
         case Tall = "tall"
+        case none
+    }
+    public enum drinkSizeEspresso: String{
+        case Venti = "venti"
+        case Grande = "grande"
+        case Tall = "tall"
+        case Short = "short"
         case none
     }
     public enum drinkTemp{
@@ -80,25 +88,10 @@ struct Homepage: View {
                             
                         } label: {
                             if selectedBaseDrinkType != .Frappuicino {
-                                VStack{
-                                    Image("coffee")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 80)
-                                        .clipShape(Circle())
-                                    Text("Frappuicino")
+                                InactiveImgButtonView(title: "Frappuicino", image: "coffee", width: 80) {
                                 }
                             } else {
-                                VStack{
-                                    Image("coffee")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 100)
-                                        .clipShape(Circle())
-                                        .shadow(color: .purple, radius: 50, x: 0, y: 2)
-                                    Text("Frappuicino")
+                                ImgButtonView(title: "Frappuicino", image: "coffee", width: 100) {
                                 }
                             }
                         }
@@ -114,25 +107,10 @@ struct Homepage: View {
                             
                         } label: {
                             if selectedBaseDrinkType != .Espresso {
-                                VStack{
-                                    Image("coffee")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 80)
-                                        .clipShape(Circle())
-                                    Text("Espresso")
+                                InactiveImgButtonView(title: "Espresso", image: "coffee", width: 80) {
                                 }
                             } else {
-                                VStack{
-                                    Image("coffee")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 100)
-                                        .clipShape(Circle())
-                                        .shadow(color: .purple, radius: 20, x: 0, y: 2)
-                                    Text("Espresso")
+                                ImgButtonView(title: "Espresso", image: "coffee", width: 100) {
                                 }
                             }
                         }
@@ -147,25 +125,10 @@ struct Homepage: View {
                             
                         } label: {
                             if selectedBaseDrinkType != .Coffee {
-                                VStack{
-                                    Image("coffee")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 80)
-                                        .clipShape(Circle())
-                                    Text("Coffee/Tea")
+                                InactiveImgButtonView(title: "Coffee/Tea", image: "coffee", width: 80) {
                                 }
                             } else {
-                                VStack{
-                                    Image("coffee")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 100)
-                                        .clipShape(Circle())
-                                        .shadow(color: .purple, radius: 50, x: 0, y: 2)
-                                    Text("Coffee/Tea")
+                                ImgButtonView(title: "Coffee/Tea", image: "coffee", width: 100) {
                                 }
                             }
                         }
@@ -181,25 +144,11 @@ struct Homepage: View {
                             
                         } label: {
                             if selectedBaseDrinkType != .Refresher{
-                                VStack{
-                                    Image("coffee")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 80)
-                                        .clipShape(Circle())
-                                    Text("Refresher")
+                                InactiveImgButtonView(title: "Refresher", image: "coffee", width: 80) {
+                                    
                                 }
                             } else {
-                                VStack{
-                                    Image("coffee")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 100)
-                                        .clipShape(Circle())
-                                        .shadow(color: .purple, radius: 50, x: 0, y: 2)
-                                    Text("Refresher")
+                                ImgButtonView(title: "Refresher", image: "coffee", width: 100) {
                                 }
                             }
                         }
@@ -217,8 +166,13 @@ struct Homepage: View {
                                 }
                             }
                             .pickerStyle(.inline)
-                            
-                            Text("Selected coffee: \(coffeeSelection)")
+                            NavigationLink(destination: FinalCalculation_View()){
+                                HStack{
+                                    Spacer()
+                                    ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width:60) {
+                                    }
+                                }
+                            }
                         }
                         .padding(30)
                     }
@@ -230,7 +184,106 @@ struct Homepage: View {
                                 .font(.title)
                                 .padding()
                             HStack(alignment: .center,spacing:15){
-                                
+                                Button{
+                                    selectedDrinkSizeEspresso = .Venti
+                                    //TODO: finish calorie counter
+                                    if selectedDrinkSizeEspresso == .Venti {
+                                        Calories += 0
+                                    } else {
+                                        Calories -= 0
+                                    }
+                                    
+                                } label: {
+                                    if selectedDrinkSizeEspresso != .Venti {
+                                        VStack{
+                                            Image("coffee")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(maxWidth: 102)
+                                                .clipShape(Circle())
+                                            Text("Venti")
+                                        }
+                                    } else {
+                                        ImgButtonView(title: "Venti", image: "coffee", width: 100) {
+                                        }
+                                    }
+                                }
+                                Button{
+                                    selectedDrinkSizeEspresso = .Grande
+                                    //TODO: finish calorie counter
+                                    if selectedDrinkSizeEspresso == .Grande {
+                                        Calories += 0
+                                    } else {
+                                        Calories -= 0
+                                    }
+                                    
+                                } label: {
+                                    if selectedDrinkSizeEspresso != .Grande {
+                                        VStack{
+                                            Image("coffee")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(maxWidth: 90)
+                                                .clipShape(Circle())
+                                            Text("Grande")
+                                        }
+                                    } else {
+                                        ImgButtonView(title: "Grande", image: "coffee", width: 90) {
+                                        }
+                                    }
+                                }
+                                Button{
+                                    selectedDrinkSizeEspresso = .Tall
+                                    //TODO: finish calorie counter
+                                    if selectedDrinkSizeEspresso == .Tall {
+                                        Calories += 0
+                                    } else {
+                                        Calories -= 0
+                                    }
+                                    
+                                } label: {
+                                    if selectedDrinkSizeEspresso != .Tall {
+                                        VStack{
+                                            Image("coffee")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(maxWidth: 90)
+                                                .clipShape(Circle())
+                                            Text("Tall")
+                                        }
+                                    } else {
+                                        ImgButtonView(title: "Tall", image: "coffee", width: 90) {
+                                        }
+                                    }
+                                }
+                                Button{
+                                    selectedDrinkSizeEspresso = .Short
+                                    //TODO: finish calorie counter
+                                    if selectedDrinkSizeEspresso == .Short {
+                                        Calories += 0
+                                    } else {
+                                        Calories -= 0
+                                    }
+                                    
+                                } label: {
+                                    if selectedDrinkSizeEspresso != .Short {
+                                        VStack{
+                                            Image("coffee")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(maxWidth: 90)
+                                                .clipShape(Circle())
+                                            Text("Short")
+                                        }
+                                    } else {
+                                        ImgButtonView(title: "Short", image: "coffee", width: 90) {
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -263,15 +316,7 @@ struct Homepage: View {
                                             Text("Tall")
                                         }
                                     } else {
-                                        VStack{
-                                            Image("coffee")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(maxWidth: 80)
-                                                .clipShape(Circle())
-                                                .shadow(color: .purple, radius: 50, x: 0, y: 2)
-                                            Text("Tall")
+                                        ImgButtonView(title: "Tall", image: "coffee", width: 80) {
                                         }
                                     }
                                 }
@@ -296,15 +341,7 @@ struct Homepage: View {
                                             Text("Grande")
                                         }
                                     } else {
-                                        VStack{
-                                            Image("coffee")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(maxWidth: 90)
-                                                .clipShape(Circle())
-                                                .shadow(color: .purple, radius: 50, x: 0, y: 2)
-                                            Text("Grande")
+                                        ImgButtonView(title: "Grande", image: "coffee", width: 90) {
                                         }
                                     }
                                 }
@@ -329,22 +366,19 @@ struct Homepage: View {
                                             Text("Venti")
                                         }
                                     } else {
-                                        VStack{
-                                            Image("coffee")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(maxWidth: 98)
-                                                .clipShape(Circle())
-                                                .shadow(color: .purple, radius: 50, x: 0, y: 2)
-                                            Text("Venti")
-                                            
+                                        ImgButtonView(title: "Venti", image: "coffee", width: 98) {
                                         }
                                     }
                                 }
-                                if selectedBaseDrinkType != Homepage.baseDrinkType.none{
-                                    if selectedDrinkSizeFrapp != Homepage.drinkSizeFrapp.none{
-                                        
+                            }
+                            if selectedBaseDrinkType != Homepage.baseDrinkType.none{
+                                if selectedDrinkSizeFrapp != Homepage.drinkSizeFrapp.none{
+                                    NavigationLink(destination: FinalCalculation_View()){
+                                        HStack{
+                                            Spacer()
+                                            ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width:60) {
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -381,15 +415,7 @@ struct Homepage: View {
                                             Text("Trenta")
                                         }
                                     } else {
-                                        VStack{
-                                            Image("coffee")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(maxWidth: 103)
-                                                .clipShape(Circle())
-                                                .shadow(color: .purple, radius: 50, x: 0, y: 2)
-                                            Text("Trenta")
+                                        ImgButtonView(title: "Trenta", image: "coffee", width: 103) {
                                         }
                                     }
                                 }
@@ -415,16 +441,7 @@ struct Homepage: View {
                                             Text("Venti")
                                         }
                                     } else {
-                                        VStack{
-                                            Image("coffee")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(maxWidth: 98)
-                                                .clipShape(Circle())
-                                                .shadow(color: .purple, radius: 50, x: 0, y: 2)
-                                            Text("Venti")
-                                            
+                                        ImgButtonView(title: "Venti", image: "coffee", width: 98) {
                                         }
                                     }
                                 }
@@ -450,15 +467,7 @@ struct Homepage: View {
                                             Text("Grande")
                                         }
                                     } else {
-                                        VStack{
-                                            Image("coffee")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(maxWidth: 90)
-                                                .clipShape(Circle())
-                                                .shadow(color: .purple, radius: 50, x: 0, y: 2)
-                                            Text("Grande")
+                                        ImgButtonView(title: "Grande", image: "coffee", width: 90) {
                                         }
                                     }
                                 }
@@ -483,15 +492,7 @@ struct Homepage: View {
                                             Text("Tall")
                                         }
                                     } else {
-                                        VStack{
-                                            Image("coffee")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(maxWidth: 80)
-                                                .clipShape(Circle())
-                                                .shadow(color: .purple, radius: 50, x: 0, y: 2)
-                                            Text("Tall")
+                                        ImgButtonView(title: "Tall", image: "coffee", width: 80) {
                                         }
                                     }
                                 }
@@ -614,7 +615,7 @@ struct Homepage: View {
                             NavigationLink(destination: FinalCalculation_View()){
                                 HStack{
                                     Spacer()
-                                    ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 70) {
+                                    ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 60) {
                                     }
                                 }
                             }

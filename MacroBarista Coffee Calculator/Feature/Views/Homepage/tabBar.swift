@@ -9,20 +9,20 @@ import SwiftUI
 
 struct tabBar: View {
     
-    @State var current = 1
+    @State var current = 2
     init() {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)], for: .normal)
     }
     var body: some View {
         TabView(selection: $current) {
             Profile_View()
-                .tag(0)
+                .tag(1)
                 .tabItem{
                     Image(systemName: "person.fill")
                     Text("Profile")
             }
             Homepage()
-                .tag(1)
+                .tag(2)
                 .tabItem {
                     Image(systemName:"plus.circle")
                     Text("Create Recipe")

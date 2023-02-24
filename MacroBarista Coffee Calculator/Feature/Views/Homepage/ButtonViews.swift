@@ -84,6 +84,43 @@ struct ImgButtonView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: width)
                     .clipShape(Circle())
+                    .shadow(color: .purple, radius: 50, x: 0, y: 2)
+                Text(title)
+            }
+        })
+    }
+}
+struct InactiveImgButtonView: View {
+    
+    typealias ActionHandler = () -> Void
+    
+    let title: String
+    let width: CGFloat
+    let image: String
+    let handler: ActionHandler
+    
+    
+    internal init(title: String,
+                  image: String,
+                  width: CGFloat,
+                  handler: @escaping ButtonView.ActionHandler) {
+        self.title = title
+        self.image = image
+        self.width = width
+        self.handler = handler
+    }
+    
+    var body: some View {
+        
+        Button(action: handler,
+               label: {
+            VStack(alignment: .center){
+                Image(image)
+                    .resizable()
+                    .scaledToFit()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: width)
+                    .clipShape(Circle())
                 Text(title)
             }
         })
@@ -92,10 +129,13 @@ struct ImgButtonView: View {
 struct ImgBtnContainer_Previews: PreviewProvider {
     static var previews: some View{
         Group{
-            ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 40) { }
+            ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 40) {}
         }
         Group{
-            ImgButtonView(title: "Frapp", image: "coffee", width: 100) { }
+            ImgButtonView(title: "Frapp", image: "coffee", width: 100) {}
+        }
+        Group{
+            InactiveImgButtonView(title: "Frapp", image: "coffee", width: 100) {}
         }
     }
 }

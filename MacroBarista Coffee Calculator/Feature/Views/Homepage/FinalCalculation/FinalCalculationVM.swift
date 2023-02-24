@@ -32,25 +32,21 @@ enum SaveRecipeState {
     case NA
 }
 
-//TODO: create returns based on string values and selections
 final class CreateRecipeVMImp: ObservableObject, FetchRecipe{
-    var state: FetchRecipeState
+    
+    @Published var state: FetchRecipeState = .NA
+    @Published var hasError: Bool = false
     
     init(state: FetchRecipeState) {
         self.state = state
     }
     
     var calories: Int = 0
-    
     var selectedBaseDrinkType: String = ""
-    
     var selectedDrinkIceAmount: String = ""
-    
     var selectedDrinkSizeFrapp: String = ""
-    
     var selectedDrinkSize: String = ""
     
-    @Published var hasError: Bool = false
     func FetchRecipe(){
         
     }

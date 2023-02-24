@@ -29,7 +29,7 @@ struct ContentView: View {
                                 .font(.system(size: 40, weight: .medium, design: .rounded))
                                 .foregroundColor(.white)
                                 VStack(){
-                                    //TODO: make error more pretty, add border box, and red info sfSymbol, and change error font
+                                    //TODO: make error more pretty
                                     if case .fail(let error) = vm.state{
                                         HStack(alignment: .center){
                                             Image(systemName:"exclamationmark.triangle.fill")

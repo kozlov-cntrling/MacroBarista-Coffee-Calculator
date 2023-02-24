@@ -25,15 +25,20 @@ struct CreateAccountView: View {
                     //Visual error handling
                     if vm.hasError{
                         if case .fail(let error) = vm.state{
-                            Text(error.localizedDescription)
-                                .font(.system(size: 15, weight: .medium, design: .rounded))
-                                .foregroundColor(Color.red.opacity(0.8))
-                                .frame(maxWidth: .infinity, alignment: .topLeading)
+                            HStack(alignment: .center){
+                                Image(systemName:"exclamationmark.triangle.fill")
+                                    .foregroundColor(Color.red.opacity(1))
+                                Text(error.localizedDescription)
+                                    .foregroundColor(Color.red.opacity(0.8))
+                            }
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 30, style: .continuous)
+                                    .stroke(Color.red, lineWidth: 4)
+                                    .opacity(0.3)
+                            )
+                            .font(.system(size: 15, weight: .medium, design: .rounded))
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                         } else {
-                            Text("Something went wrong, please try again later..")
-                                .font(.system(size: 15, weight: .medium, design: .rounded))
-                                .foregroundColor(Color.red.opacity(0.8))
-                                .frame(maxWidth: .infinity, alignment: .bottomTrailing)
                         }
                     }
                     //All textboxes in this VStack

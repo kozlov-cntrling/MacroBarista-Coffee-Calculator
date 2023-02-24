@@ -51,7 +51,7 @@ private extension SessionServiceImp {
                 self.state = user == nil ? .loggedOut : .loggedIn
             }
     }
-    //passes userid
+    //This function keeps user logged in when app is restarted
     func handleRefresh(with uid:String){
         
         Database

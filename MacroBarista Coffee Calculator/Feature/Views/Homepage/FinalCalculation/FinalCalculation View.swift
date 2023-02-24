@@ -9,7 +9,8 @@ import SwiftUI
 
 struct FinalCalculation_View: View {
     //@StateObject public var vm = CreateRecipeVMImp(
-        //state: FetchRecipeState)
+        //state: FetchRecipeState()
+    //)
     var body: some View {
         ZStack{
             NavigationView(){
