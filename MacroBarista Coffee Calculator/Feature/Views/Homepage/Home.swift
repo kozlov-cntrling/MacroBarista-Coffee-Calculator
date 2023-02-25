@@ -4,11 +4,7 @@
 import Firebase
 import SwiftUI
 
-struct Homepage: View {
-    @EnvironmentObject var SessionService: SessionServiceImp
-    
-    @State private var showCreateAccount: Bool = false
-    @State private var showForgotPassword: Bool = false
+struct Home: View {
     
     @State var selectedDrinkIceAmount: drinkIceAmount?  = Optional.none
     @State var selectedBaseDrinkType: baseDrinkType?  = Optional.none
@@ -62,6 +58,7 @@ struct Homepage: View {
         case Regular
     }
     var body: some View {
+        //TODO: Fix bug where navigation button is on the left of the button
         NavigationView{
             ZStack{
                 Image("background")
@@ -196,8 +193,7 @@ struct Homepage: View {
                             NavigationLink(destination: FinalCalculation_View()){
                                 HStack{
                                     Spacer()
-                                    ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width:60) {
-                                    }
+                                    NavigationButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 100)
                                 }
                             }
                         }
@@ -314,11 +310,10 @@ struct Homepage: View {
                             }
                             if selectedBaseDrinkType == .Espresso{
                                 if selectedDrinkSizeEspresso != .none{
-                                    NavigationLink(destination: FinalCalculation_View()){
-                                        HStack{
-                                            Spacer()
-                                            ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width:60) {
-                                            }
+                                    HStack(){
+                                        Spacer()
+                                        NavigationLink(destination: FinalCalculation_View()){
+                                            NavigationButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 100)
                                         }
                                     }
                                 }
@@ -408,13 +403,12 @@ struct Homepage: View {
                                     }
                                 }
                             }
-                            if selectedBaseDrinkType != Homepage.baseDrinkType.none{
-                                if selectedDrinkSizeFrapp != Homepage.drinkSizeFrapp.none{
+                            if selectedBaseDrinkType != Home.baseDrinkType.none{
+                                if selectedDrinkSizeFrapp != Home.drinkSizeFrapp.none{
                                     NavigationLink(destination: FinalCalculation_View()){
                                         HStack{
                                             Spacer()
-                                            ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width:60) {
-                                            }
+                                            NavigationButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 100)
                                         }
                                     }
                                 }
@@ -535,8 +529,8 @@ struct Homepage: View {
                                 }
                             }
                             
-                            if selectedBaseDrinkType != Homepage.baseDrinkType.none{
-                                if selectedDrinkSize != Homepage.drinkSizeRefresher.none{
+                            if selectedBaseDrinkType != Home.baseDrinkType.none{
+                                if selectedDrinkSize != Home.drinkSizeRefresher.none{
                                     VStack{
                                         Text("Ice amount?")
                                             .fontWeight(.light)
@@ -646,14 +640,12 @@ struct Homepage: View {
                             } 
                         }
                     }
-                    //Next button APPEARS when refresher is selected
                     if selectedBaseDrinkType == .Refresher{
-                        if selectedDrinkSize != Optional.none{
+                        if selectedDrinkSize != .none{
                             NavigationLink(destination: FinalCalculation_View()){
                                 HStack{
                                     Spacer()
-                                    ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 60) {
-                                    }
+                                    NavigationButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 100)
                                 }
                             }
                         }

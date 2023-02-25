@@ -20,7 +20,8 @@ struct FinalCalculation_View: View {
                         .cornerRadius(20)
                         .ignoresSafeArea()
                     Text("Finish your new drink!")
-                        .padding(30)
+                        .font(.title)
+                        .padding(20)
                 }
             }
         }

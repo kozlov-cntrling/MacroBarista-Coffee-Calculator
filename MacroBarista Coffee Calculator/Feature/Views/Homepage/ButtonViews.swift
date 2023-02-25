@@ -90,49 +90,50 @@ struct ImgButtonView: View {
         })
     }
 }
-struct InactiveImgButtonView: View {
+
+struct NavigationButtonView: View {
     
-    typealias ActionHandler = () -> Void
-    
-    let title: String
     let width: CGFloat
-    let image: String
-    let handler: ActionHandler
+    let title: String
+    let sfSymbol: String?
     
+    private let cornerRadius: CGFloat = 10
     
     internal init(title: String,
-                  image: String,
-                  width: CGFloat,
-                  handler: @escaping ButtonView.ActionHandler) {
+                  sfSymbol: String?,
+                  width: CGFloat) {
         self.title = title
-        self.image = image
+        self.sfSymbol = sfSymbol
         self.width = width
-        self.handler = handler
     }
     
     var body: some View {
-        
-        Button(action: handler,
-               label: {
-            VStack(alignment: .center){
-                Image(image)
-                    .resizable()
-                    .scaledToFit()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: width)
-                    .clipShape(Circle())
+            HStack(alignment: .center){
                 Text(title)
+                    .frame(maxWidth: width, minHeight: 40, alignment: .center)
+                if let systemImage =  sfSymbol{
+                    Image(systemName: systemImage)
+                        .foregroundColor(Color.white.opacity(0.8))
+                        .font(.system(size:18, weight: .bold))
+                }
             }
-        })
+            .padding(.horizontal,30)
+        .background(.blue)
+        .foregroundColor(.white)
+        .font(.system(size:20, weight: .bold))
+        .cornerRadius(cornerRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .stroke(lineWidth: 2)
+        )
     }
 }
 struct ImgBtnContainer_Previews: PreviewProvider {
     static var previews: some View{
         Group{
-            ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 40) {}
+            NavigationButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 40)
         }
-        Group{
-            ImgButtonView(title: "Frapp", image: "coffee", width: 100) {}
-        }
+        ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 40) {}
+        ImgButtonView(title: "Frapp", image: "coffee", width: 100) {}
     }
 }

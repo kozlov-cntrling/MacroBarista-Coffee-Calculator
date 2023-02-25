@@ -16,11 +16,11 @@ enum SessionState{
 }
 
 protocol SessionService {
-    //Gets both session state cases above
+    ///Gets both session state cases above
     var state:SessionState {get}
-    //Gets both fname and lname
+    ///Gets both fname and lname
     var userDetails: SessionUserDetails? {get}
-
+    ///new logout function
     func logOut()
 }
 

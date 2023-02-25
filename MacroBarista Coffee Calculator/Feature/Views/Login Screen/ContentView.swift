@@ -29,19 +29,21 @@ struct ContentView: View {
                                 .font(.system(size: 40, weight: .medium, design: .rounded))
                                 .foregroundColor(.white)
                                 VStack(){
-                                    //TODO: make error more pretty
                                     if case .fail(let error) = vm.state{
                                         HStack(alignment: .center){
                                             Image(systemName:"exclamationmark.triangle.fill")
                                                 .foregroundColor(Color.red.opacity(1))
                                             Text(error.localizedDescription)
-                                                .foregroundColor(Color.red.opacity(0.8))
+                                                .foregroundColor(Color.red.opacity(0.9))
                                         }
                                         .padding(5)
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 10, style: .continuous)
                                                 .stroke(Color.red, lineWidth: 4)
-                                                .background(RoundedRectangle(cornerSize: CGSize()).fill(.red).opacity(0.45))
+                                                .background(RoundedRectangle(cornerSize: CGSize())
+                                                    .fill(.red)
+                                                    .opacity(0.45))
+                                            //Next opacity call adjusts multiplies the opacity for the fill and text of error message
                                                 .opacity(0.3)
                                         )
                                         .font(.system(size: 15, weight: .medium, design: .rounded))
@@ -71,7 +73,7 @@ struct ContentView: View {
                             .sheet(isPresented: $showCreateAccount, content: {
                                 CreateAccountView()
                             })
-                            .transition(.scale)
+
                             Spacer()
                             Button("Login", action: {
                                 vm.login()

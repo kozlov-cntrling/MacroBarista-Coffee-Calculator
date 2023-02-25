@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-struct tabBar: View {
+struct Homepage: View {
+    @EnvironmentObject var SessionService: SessionServiceImp
+
+    @State private var showCreateAccount: Bool = false
+    @State private var showForgotPassword: Bool = false
     
     @State var current = 2
     init() {
@@ -21,7 +25,7 @@ struct tabBar: View {
                     Image(systemName: "person.fill")
                     Text("Profile")
             }
-            Homepage()
+            Home()
                 .tag(2)
                 .tabItem {
                     Image(systemName:"plus.circle")
@@ -41,6 +45,6 @@ struct tabBar: View {
 
 struct tabBar_Previews: PreviewProvider {
     static var previews: some View {
-        tabBar()
+        Homepage()
     }
 }

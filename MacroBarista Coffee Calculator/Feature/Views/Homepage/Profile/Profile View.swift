@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct Profile_View: View {
+    
     var body: some View {
         ZStack{
             Image("background")
             Text("Profile view")
+            VStack(alignment: .leading){
+
+            }
         }
     }
 }
