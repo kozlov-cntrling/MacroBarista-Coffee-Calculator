@@ -38,6 +38,7 @@
 		837A5F72297DD233000238D3 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F70297DD233000238D3 /* CreateAccountView.swift */; };
 		837A5F73297DD233000238D3 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F70297DD233000238D3 /* CreateAccountView.swift */; };
 		837A5F75297DDA84000238D3 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A5F74297DDA84000238D3 /* CreateAccountController.swift */; };
+		837F4FBA29AE608300C29518 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837F4FB929AE608300C29518 /* test.swift */; };
 		838277E8298B12D300030D56 /* ButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838277E7298B12D300030D56 /* ButtonViews.swift */; };
 		839A152E2984852F00E8EE89 /* SessionUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A152D2984852F00E8EE89 /* SessionUserDetails.swift */; };
 		839A1531298485A400E8EE89 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A1530298485A400E8EE89 /* SessionService.swift */; };
@@ -92,6 +93,7 @@
 		8372147D297F910D0040F2E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		837A5F70297DD233000238D3 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		837A5F74297DDA84000238D3 /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
+		837F4FB929AE608300C29518 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		838277E7298B12D300030D56 /* ButtonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViews.swift; sourceTree = "<group>"; };
 		839A152D2984852F00E8EE89 /* SessionUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUserDetails.swift; sourceTree = "<group>"; };
 		839A1530298485A400E8EE89 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
@@ -139,40 +141,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		831830512996D740004CDE31 /* FinalCalculation */ = {
-			isa = PBXGroup;
-			children = (
-				83183057299A8191004CDE31 /* FinalCalculationService */,
-				83183054299A0930004CDE31 /* Viewmodel */,
-				831830522996D7E9004CDE31 /* FinalCalculation View.swift */,
-			);
-			path = FinalCalculation;
-			sourceTree = "<group>";
-		};
-		83183054299A0930004CDE31 /* Viewmodel */ = {
-			isa = PBXGroup;
-			children = (
-				83183055299A0952004CDE31 /* FinalCalculationVM.swift */,
-			);
-			name = Viewmodel;
-			sourceTree = "<group>";
-		};
-		83183057299A8191004CDE31 /* FinalCalculationService */ = {
-			isa = PBXGroup;
-			children = (
-				83183058299A81A8004CDE31 /* File.swift */,
-			);
-			name = FinalCalculationService;
-			sourceTree = "<group>";
-		};
-		8318305C299AB1AD004CDE31 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				8318305D299AB1CF004CDE31 /* Profile View.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		8330B9242982E860000CAC04 /* Create Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,18 +213,14 @@
 			path = VM;
 			sourceTree = "<group>";
 		};
-		834ABEB929877EE40076C14A /* Homepage */ = {
+		834ABEB929877EE40076C14A /* Home Views */ = {
 			isa = PBXGroup;
 			children = (
-				8318305C299AB1AD004CDE31 /* Profile */,
-				831830512996D740004CDE31 /* FinalCalculation */,
-				8358FDB22993F62000CFA75B /* Tabview */,
-				834ABEB729877ED50076C14A /* Home.swift */,
-				8318304D29968E46004CDE31 /* DropDown.swift */,
-				838277E7298B12D300030D56 /* ButtonViews.swift */,
-				8318304F299694E9004CDE31 /* HomePage.swift */,
+				837F4FB429AD200900C29518 /* Reusuable Views */,
+				837F4FB329AD1FC800C29518 /* Main Navigation */,
+				83183058299A81A8004CDE31 /* File.swift */,
 			);
-			path = Homepage;
+			path = "Home Views";
 			sourceTree = "<group>";
 		};
 		834ABEC029896E250076C14A /* Service */ = {
@@ -291,27 +255,11 @@
 			path = Detaill;
 			sourceTree = "<group>";
 		};
-		8358FDB22993F62000CFA75B /* Tabview */ = {
-			isa = PBXGroup;
-			children = (
-				8358FDB32993F63300CFA75B /* Account */,
-				83D38FC6298DEC5D003B674A /* SavedRecipes */,
-			);
-			path = Tabview;
-			sourceTree = "<group>";
-		};
-		8358FDB32993F63300CFA75B /* Account */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Account;
-			sourceTree = "<group>";
-		};
 		837A5F6F297DD0E1000238D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				833485D029A7BBAD004737C3 /* Loading Screen */,
-				834ABEB929877EE40076C14A /* Homepage */,
+				834ABEB929877EE40076C14A /* Home Views */,
 				8330B9262982E89A000CAC04 /* Login Screen */,
 				8330B9252982E87A000CAC04 /* Forgot Password */,
 				8330B9242982E860000CAC04 /* Create Account */,
@@ -322,11 +270,66 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		837F4FB329AD1FC800C29518 /* Main Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				837F4FB829AD22D100C29518 /* Saved Recipes */,
+				837F4FB729AD22C600C29518 /* Profile */,
+				837F4FB529AD226500C29518 /* Calculation Views */,
+				8318304F299694E9004CDE31 /* HomePage.swift */,
+			);
+			path = "Main Navigation";
+			sourceTree = "<group>";
+		};
+		837F4FB429AD200900C29518 /* Reusuable Views */ = {
+			isa = PBXGroup;
+			children = (
+				8318304D29968E46004CDE31 /* DropDown.swift */,
+				838277E7298B12D300030D56 /* ButtonViews.swift */,
+			);
+			path = "Reusuable Views";
+			sourceTree = "<group>";
+		};
+		837F4FB529AD226500C29518 /* Calculation Views */ = {
+			isa = PBXGroup;
+			children = (
+				831830522996D7E9004CDE31 /* FinalCalculation View.swift */,
+				837F4FB629AD22B000C29518 /* ViewModel */,
+				834ABEB729877ED50076C14A /* Home.swift */,
+			);
+			path = "Calculation Views";
+			sourceTree = "<group>";
+		};
+		837F4FB629AD22B000C29518 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				83183055299A0952004CDE31 /* FinalCalculationVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		837F4FB729AD22C600C29518 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8318305D299AB1CF004CDE31 /* Profile View.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		837F4FB829AD22D100C29518 /* Saved Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				8358FDB42993F6B100CFA75B /* SavedRecipes.swift */,
+			);
+			path = "Saved Recipes";
+			sourceTree = "<group>";
+		};
 		839A152A298484E900E8EE89 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
 				839A152B2984850200E8EE89 /* Session */,
 				837A5F6F297DD0E1000238D3 /* Views */,
+				837F4FB929AE608300C29518 /* test.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -413,14 +416,6 @@
 				83B7993E2979BBC000A233FB /* MacroBarista_Coffee_CalculatorUITestsLaunchTests.swift */,
 			);
 			path = "MacroBarista Coffee CalculatorUITests";
-			sourceTree = "<group>";
-		};
-		83D38FC6298DEC5D003B674A /* SavedRecipes */ = {
-			isa = PBXGroup;
-			children = (
-				8358FDB42993F6B100CFA75B /* SavedRecipes.swift */,
-			);
-			path = SavedRecipes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -578,6 +573,7 @@
 				834ABEC229896EAC0076C14A /* ForgotPasswordService.swift in Sources */,
 				8330B9282983065B000CAC04 /* NewAccountDetails.swift in Sources */,
 				8330B91D2981975C000CAC04 /* ForgotPasswordView.swift in Sources */,
+				837F4FBA29AE608300C29518 /* test.swift in Sources */,
 				834ABEB329874B890076C14A /* LoginService.swift in Sources */,
 				83B799212979BBB800A233FB /* MacroBarista_Coffee_CalculatorApp.swift in Sources */,
 				8358FDB52993F6B100CFA75B /* SavedRecipes.swift in Sources */,

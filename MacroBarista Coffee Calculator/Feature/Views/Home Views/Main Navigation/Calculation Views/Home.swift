@@ -5,60 +5,10 @@ import Firebase
 import SwiftUI
 
 struct Home: View {
+    //TODO: put all enums/variables into a different struct and call from it like a viewmodel
+    @ObservedObject public var recipeInfo = RecipeInfo()
     
-    @State var selectedDrinkIceAmount: drinkIceAmount?  = Optional.none
-    @State var selectedBaseDrinkType: baseDrinkType?  = Optional.none
-    
-    @State public var selectedDrinkSize: drinkSizeRefresher? = Optional.none
-    @State public var selectedDrinkSizeFrapp: drinkSizeFrapp = .none
-    @State public var selectedDrinkSizeEspresso: drinkSizeEspresso = .none
-    
-    @State public var Calories: Int = 0
-    
-    @State private var coffeeSelection = "Latte"
-    
-    let coffeeType = ["Cold Brew", "Drip Coffee", "Iced Coffee", "Americano Coffee", "Latte", "Tea"]
-    
-    public enum baseDrinkType: String{
-        case Frappuicino = "Frappuicino"
-        case Espresso = "Espresso"
-        case Coffee = "Coffee"
-        case Refresher = "Refresher"
-        case none 
-    }
-    public enum drinkSizeRefresher: String{
-        case Venti = "venti"
-        case Grande = "grande"
-        case Tall = "tall"
-        case Trenta = "trenta"
-        case Short = "short"
-        case none
-    }
-    public enum drinkSizeFrapp: String{
-        case Venti = "venti"
-        case Grande = "grande"
-        case Tall = "tall"
-        case none
-    }
-    public enum drinkSizeEspresso: String{
-        case Venti = "venti"
-        case Grande = "grande"
-        case Tall = "tall"
-        case Short = "short"
-        case none
-    }
-    public enum drinkTemp{
-        case Hot
-        case Cold
-    }
-    public enum drinkIceAmount{
-        case none
-        case Light
-        case Extra
-        case Regular
-    }
     var body: some View {
-        //TODO: Fix bug where navigation button is on the left of the button
         NavigationView{
             ZStack{
                 Image("background")
@@ -75,16 +25,16 @@ struct Home: View {
                         .padding()
                     HStack(alignment: .center,spacing:15){
                         Button{
-                            selectedBaseDrinkType = .Frappuicino
+                            recipeInfo.selectedBaseDrinkType = RecipeInfo.baseDrinkType.Frappuicino
                             //TODO: finish calorie counterz
-                            if selectedBaseDrinkType == .Frappuicino {
-                                Calories += 0
+                            if recipeInfo.selectedBaseDrinkType == .Frappuicino {
+                                recipeInfo.Calories += 0
                             } else {
-                                Calories -= 0
+                                recipeInfo.Calories -= 0
                             }
                             
                         } label: {
-                            if selectedBaseDrinkType != .Frappuicino {
+                            if recipeInfo.selectedBaseDrinkType != RecipeInfo.baseDrinkType.Frappuicino {
                                 VStack{
                                     Image("coffee")
                                         .resizable()
@@ -94,23 +44,23 @@ struct Home: View {
                                         .clipShape(Circle())
                                     Text("Frappuicino")
                                 }
-                            } else {
+                            }; if recipeInfo.selectedBaseDrinkType == RecipeInfo.baseDrinkType.Frappuicino  {
                                 ImgButtonView(title: "Frappuicino", image: "coffee", width: 100) {
                                 }
                             }
                         }
                         
                         Button{
-                            selectedBaseDrinkType = .Espresso
+                            recipeInfo.selectedBaseDrinkType = .Espresso
                             
-                            if selectedBaseDrinkType == .Espresso {
-                                Calories += 0
+                            if recipeInfo.selectedBaseDrinkType == .Espresso {
+                                recipeInfo.Calories += 0
                             } else {
-                                Calories -= 0
+                                recipeInfo.Calories -= 0
                             }
                             
                         } label: {
-                            if selectedBaseDrinkType != .Espresso {
+                            if recipeInfo.selectedBaseDrinkType != .Espresso {
                                 VStack{
                                     Image("coffee")
                                         .resizable()
@@ -126,16 +76,16 @@ struct Home: View {
                             }
                         }
                         Button{
-                            selectedBaseDrinkType = .Coffee
+                            recipeInfo.selectedBaseDrinkType = RecipeInfo.baseDrinkType.Coffee
                             
-                            if selectedBaseDrinkType == .Coffee {
-                                Calories += 0
+                            if recipeInfo.selectedBaseDrinkType == RecipeInfo.baseDrinkType.Coffee {
+                                recipeInfo.Calories += 0
                             } else {
-                                Calories -= 0
+                                recipeInfo.Calories -= 0
                             }
                             
                         } label: {
-                            if selectedBaseDrinkType != .Coffee {
+                            if recipeInfo.selectedBaseDrinkType != RecipeInfo.baseDrinkType.Coffee {
                                 VStack{
                                     Image("coffee")
                                         .resizable()
@@ -152,16 +102,16 @@ struct Home: View {
                         }
                         //REFRESHER OPTION
                         Button{
-                            selectedBaseDrinkType = .Refresher
+                            recipeInfo.selectedBaseDrinkType = .Refresher
                             
-                            if selectedBaseDrinkType == .Refresher {
-                                Calories += 0
+                            if recipeInfo.selectedBaseDrinkType == .Refresher {
+                                recipeInfo.Calories += 0
                             } else {
-                                Calories -= 0
+                                recipeInfo.Calories -= 0
                             }
                             
                         } label: {
-                            if selectedBaseDrinkType != .Refresher{
+                            if recipeInfo.selectedBaseDrinkType != .Refresher{
                                 VStack{
                                     Image("coffee")
                                         .resizable()
@@ -178,29 +128,29 @@ struct Home: View {
                         }
                     }
                     //COFFEE ACTIVE
-                    if selectedBaseDrinkType == .Coffee{
+                    if recipeInfo.selectedBaseDrinkType == .Coffee{
                         VStack {
                             Text("Coffee brew?")
                                 .fontWeight(.light)
                                 .font(.title)
-                            Picker("Select a brew", selection: $coffeeSelection) {
-                                ForEach(coffeeType, id: \.self) {
+                            Picker("Select a brew", selection: $recipeInfo.coffeeSelection) {
+                                ForEach(recipeInfo.coffeeType, id: \.self) {
                                     Text($0)
                                         .foregroundColor(.blue)
                                 }
                             }
                             .pickerStyle(.menu)
-                            NavigationLink(destination: FinalCalculation_View()){
+                            
+                            NavigationLink(destination: FinalCalculation_View(recipeInfo: recipeInfo)) {
                                 HStack{
-                                    Spacer()
                                     NavigationButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 100)
                                 }
                             }
                         }
-                        .padding(30)
+                        .padding(25)
                     }
                     //ESPRESSO ACTIVE
-                    if selectedBaseDrinkType == .Espresso   {
+                    if recipeInfo.selectedBaseDrinkType == .Espresso   {
                         VStack{
                             Text("Drink size?")
                                 .fontWeight(.light)
@@ -208,16 +158,16 @@ struct Home: View {
                                 .padding()
                             HStack(alignment: .center,spacing:15){
                                 Button{
-                                    selectedDrinkSizeEspresso = .Venti
+                                    recipeInfo.selectedDrinkSizeEspresso = .Venti
                                     //TODO: finish calorie counter
-                                    if selectedDrinkSizeEspresso == .Venti {
-                                        Calories += 0
+                                    if recipeInfo.selectedDrinkSizeEspresso == .Venti {
+                                        recipeInfo.Calories += 0
                                     } else {
-                                        Calories -= 0
+                                        recipeInfo.Calories -= 0
                                     }
                                     
                                 } label: {
-                                    if selectedDrinkSizeEspresso != .Venti {
+                                    if recipeInfo.selectedDrinkSizeEspresso != .Venti {
                                         VStack{
                                             Image("coffee")
                                                 .resizable()
@@ -233,16 +183,16 @@ struct Home: View {
                                     }
                                 }
                                 Button{
-                                    selectedDrinkSizeEspresso = .Grande
+                                    recipeInfo.selectedDrinkSizeEspresso = .Grande
                                     //TODO: finish calorie counter
-                                    if selectedDrinkSizeEspresso == .Grande {
-                                        Calories += 0
+                                    if recipeInfo.selectedDrinkSizeEspresso == .Grande {
+                                        recipeInfo.Calories += 0
                                     } else {
-                                        Calories -= 0
+                                        recipeInfo.Calories -= 0
                                     }
                                     
                                 } label: {
-                                    if selectedDrinkSizeEspresso != .Grande {
+                                    if recipeInfo.selectedDrinkSizeEspresso != .Grande {
                                         VStack{
                                             Image("coffee")
                                                 .resizable()
@@ -258,16 +208,16 @@ struct Home: View {
                                     }
                                 }
                                 Button{
-                                    selectedDrinkSizeEspresso = .Tall
+                                    recipeInfo.selectedDrinkSizeEspresso = .Tall
                                     //TODO: finish calorie counter
-                                    if selectedDrinkSizeEspresso == .Tall {
-                                        Calories += 0
+                                    if recipeInfo.selectedDrinkSizeEspresso == .Tall {
+                                        recipeInfo.Calories += 0
                                     } else {
-                                        Calories -= 0
+                                        recipeInfo.Calories -= 0
                                     }
                                     
                                 } label: {
-                                    if selectedDrinkSizeEspresso != .Tall {
+                                    if recipeInfo.selectedDrinkSizeEspresso != .Tall {
                                         VStack{
                                             Image("coffee")
                                                 .resizable()
@@ -283,16 +233,16 @@ struct Home: View {
                                     }
                                 }
                                 Button{
-                                    selectedDrinkSizeEspresso = .Short
+                                    recipeInfo.selectedDrinkSizeEspresso = .Short
                                     //TODO: finish calorie counter
-                                    if selectedDrinkSizeEspresso == .Short {
-                                        Calories += 0
+                                    if recipeInfo.selectedDrinkSizeEspresso == .Short {
+                                        recipeInfo.Calories += 0
                                     } else {
-                                        Calories -= 0
+                                        recipeInfo.Calories -= 0
                                     }
                                     
                                 } label: {
-                                    if selectedDrinkSizeEspresso != .Short {
+                                    if recipeInfo.selectedDrinkSizeEspresso != .Short {
                                         VStack{
                                             Image("coffee")
                                                 .resizable()
@@ -308,11 +258,10 @@ struct Home: View {
                                     }
                                 }
                             }
-                            if selectedBaseDrinkType == .Espresso{
-                                if selectedDrinkSizeEspresso != .none{
-                                    HStack(){
-                                        Spacer()
-                                        NavigationLink(destination: FinalCalculation_View()){
+                            if recipeInfo.selectedBaseDrinkType == .Espresso{
+                                if recipeInfo.selectedDrinkSizeEspresso != .none{
+                                    NavigationLink(destination: FinalCalculation_View(recipeInfo: recipeInfo)) {
+                                        HStack{
                                             NavigationButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 100)
                                         }
                                     }
@@ -321,7 +270,7 @@ struct Home: View {
                         }
                     }
                     //FRAPP ACTIVE
-                    if selectedBaseDrinkType == .Frappuicino    {
+                    if recipeInfo.selectedBaseDrinkType == .Frappuicino    {
                         VStack{
                             Text("Drink size?")
                                 .fontWeight(.light)
@@ -329,16 +278,16 @@ struct Home: View {
                                 .padding()
                             HStack(alignment: .center,spacing:15){
                                 Button{
-                                    selectedDrinkSizeFrapp = .Venti
+                                    recipeInfo.selectedDrinkSizeFrapp = .Venti
                                     //TODO: finish calorie counter
-                                    if selectedDrinkSizeFrapp == .Venti {
-                                        Calories += 0
+                                    if recipeInfo.selectedDrinkSizeFrapp == .Venti {
+                                        recipeInfo.Calories += 0
                                     } else {
-                                        Calories -= 0
+                                        recipeInfo.Calories -= 0
                                     }
                                     
                                 } label: {
-                                    if selectedDrinkSizeFrapp != .Venti {
+                                    if recipeInfo.selectedDrinkSizeFrapp != .Venti {
                                         VStack{
                                             Image("coffee")
                                                 .resizable()
@@ -354,16 +303,16 @@ struct Home: View {
                                     }
                                 }
                                 Button{
-                                    selectedDrinkSizeFrapp = .Grande
+                                    recipeInfo.selectedDrinkSizeFrapp = .Grande
                                     //TODO: finish calorie counter
-                                    if selectedDrinkSizeFrapp == .Grande {
-                                        Calories += 0
+                                    if recipeInfo.selectedDrinkSizeFrapp == .Grande {
+                                        recipeInfo.Calories += 0
                                     } else {
-                                        Calories -= 0
+                                        recipeInfo.Calories -= 0
                                     }
 
                                 } label: {
-                                    if selectedDrinkSizeFrapp != .Grande {
+                                    if recipeInfo.selectedDrinkSizeFrapp != .Grande {
                                         VStack{
                                             Image("coffee")
                                                 .resizable()
@@ -379,15 +328,15 @@ struct Home: View {
                                     }
                                 }
                                 Button{
-                                    selectedDrinkSizeFrapp = .Tall
+                                    recipeInfo.selectedDrinkSizeFrapp = .Tall
                                     //TODO: finish calorie counter
-                                    if selectedDrinkSizeFrapp == .Tall {
-                                        Calories += 0
+                                    if recipeInfo.selectedDrinkSizeFrapp == .Tall {
+                                        recipeInfo.Calories += 0
                                     } else {
-                                        Calories -= 0
+                                        recipeInfo.Calories -= 0
                                     }
                                 } label: {
-                                    if selectedDrinkSizeFrapp != .Tall{
+                                    if recipeInfo.selectedDrinkSizeFrapp != .Tall{
                                         VStack{
                                             Image("coffee")
                                                 .resizable()
@@ -403,11 +352,10 @@ struct Home: View {
                                     }
                                 }
                             }
-                            if selectedBaseDrinkType != Home.baseDrinkType.none{
-                                if selectedDrinkSizeFrapp != Home.drinkSizeFrapp.none{
-                                    NavigationLink(destination: FinalCalculation_View()){
+                            if recipeInfo.selectedBaseDrinkType != RecipeInfo.baseDrinkType.none{
+                                if recipeInfo.selectedDrinkSizeFrapp != RecipeInfo.drinkSizeFrapp.none{
+                                    NavigationLink(destination: FinalCalculation_View(recipeInfo: recipeInfo)) {
                                         HStack{
-                                            Spacer()
                                             NavigationButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 100)
                                         }
                                     }
@@ -417,7 +365,7 @@ struct Home: View {
                     }
                     //REFRESHER ACTIVE
                     //TODO: fix bug where drink size stays active
-                    if selectedBaseDrinkType == .Refresher  {
+                    if recipeInfo.selectedBaseDrinkType == .Refresher  {
                         VStack(spacing: 0){
                             Text("Drink size?")
                                 .fontWeight(.light)
@@ -426,16 +374,16 @@ struct Home: View {
                             HStack(alignment: .center,spacing:15){
                                 //Tentra
                                 Button{
-                                    selectedDrinkSize = .Trenta
+                                    recipeInfo.selectedDrinkSize = .Trenta
                                     //TODO: finish calorie counter
-                                    if selectedDrinkSize == .Trenta {
-                                        Calories += 0
+                                    if recipeInfo.selectedDrinkSize == .Trenta {
+                                        recipeInfo.Calories += 0
                                     } else {
-                                        Calories -= 0
+                                        recipeInfo.Calories -= 0
                                     }
                                     
                                 } label: {
-                                    if selectedDrinkSize != .Trenta {
+                                    if recipeInfo.selectedDrinkSize != .Trenta {
                                         VStack{
                                             Image("coffee")
                                                 .resizable()
@@ -452,16 +400,16 @@ struct Home: View {
                                 }
                                 //Venti
                                 Button{
-                                    selectedDrinkSize = .Venti
+                                    recipeInfo.selectedDrinkSize = .Venti
                                     //TODO: finish calorie counter
-                                    if selectedDrinkSize == .Venti {
-                                        Calories += 0
+                                    if recipeInfo.selectedDrinkSize == .Venti {
+                                        recipeInfo.Calories += 0
                                     } else {
-                                        Calories -= 0
+                                        recipeInfo.Calories -= 0
                                     }
                                     
                                 } label: {
-                                    if selectedDrinkSize != .Venti {
+                                    if recipeInfo.selectedDrinkSize != .Venti {
                                         VStack{
                                             Image("coffee")
                                                 .resizable()
@@ -478,16 +426,16 @@ struct Home: View {
                                 }
                                 //Grande
                                 Button{
-                                    selectedDrinkSize = .Grande
+                                    recipeInfo.selectedDrinkSize = .Grande
                                     //TODO: finish calorie counter
-                                    if selectedDrinkSize == .Grande {
-                                        Calories += 0
+                                    if recipeInfo.selectedDrinkSize == .Grande {
+                                        recipeInfo.Calories += 0
                                     } else {
-                                        Calories -= 0
+                                        recipeInfo.Calories -= 0
                                     }
                                     
                                 } label: {
-                                    if selectedDrinkSize != .Grande {
+                                    if recipeInfo.selectedDrinkSize != .Grande {
                                         VStack{
                                             Image("coffee")
                                                 .resizable()
@@ -504,15 +452,15 @@ struct Home: View {
                                 }
                                 //Tall
                                 Button{
-                                    selectedDrinkSize = .Tall
+                                    recipeInfo.selectedDrinkSize = .Tall
                                     //TODO: finish calorie counter
-                                    if selectedDrinkSize == .Tall {
-                                        Calories += 0
+                                    if recipeInfo.selectedDrinkSize == .Tall {
+                                        recipeInfo.Calories += 0
                                     } else {
-                                        Calories -= 0
+                                        recipeInfo.Calories -= 0
                                     }
                                 } label: {
-                                    if selectedDrinkSize != .Tall{
+                                    if recipeInfo.selectedDrinkSize != .Tall{
                                         VStack{
                                             Image("coffee")
                                                 .resizable()
@@ -529,8 +477,8 @@ struct Home: View {
                                 }
                             }
                             
-                            if selectedBaseDrinkType != Home.baseDrinkType.none{
-                                if selectedDrinkSize != Home.drinkSizeRefresher.none{
+                            if recipeInfo.selectedBaseDrinkType != RecipeInfo.baseDrinkType.none{
+                                if recipeInfo.selectedDrinkSize != RecipeInfo.drinkSizeRefresher.none{
                                     VStack{
                                         Text("Ice amount?")
                                             .fontWeight(.light)
@@ -539,15 +487,15 @@ struct Home: View {
                                         HStack(alignment: .center,spacing:15){
                                             //extra ice
                                             Button{
-                                                selectedDrinkIceAmount = .Extra
+                                                recipeInfo.selectedDrinkIceAmount = .Extra
                                                 
-                                                if selectedDrinkIceAmount == .Extra {
-                                                    Calories += 0
+                                                if recipeInfo.selectedDrinkIceAmount == .Extra {
+                                                    recipeInfo.Calories += 0
                                                 } else {
-                                                    Calories -= 0
+                                                    recipeInfo.Calories -= 0
                                                 }
                                             } label: {
-                                                if (selectedDrinkIceAmount != .Extra){
+                                                if (recipeInfo.selectedDrinkIceAmount != .Extra){
                                                     VStack{
                                                         Image("coffee")
                                                             .resizable()
@@ -571,15 +519,15 @@ struct Home: View {
                                                 }
                                             }
                                             Button{
-                                                selectedDrinkIceAmount = .Regular
+                                                recipeInfo.selectedDrinkIceAmount = .Regular
                                                 
-                                                if selectedDrinkIceAmount == .Regular {
-                                                    Calories += 0
+                                                if recipeInfo.selectedDrinkIceAmount == .Regular {
+                                                    recipeInfo.Calories += 0
                                                 } else {
-                                                    Calories -= 0
+                                                    recipeInfo.Calories -= 0
                                                 }
                                             } label: {
-                                                if (selectedDrinkIceAmount != .Regular){
+                                                if (recipeInfo.selectedDrinkIceAmount != .Regular){
                                                     VStack{
                                                         Image("coffee")
                                                             .resizable()
@@ -603,15 +551,15 @@ struct Home: View {
                                                 }
                                             }
                                             Button{
-                                                selectedDrinkIceAmount = .Light
+                                                recipeInfo.selectedDrinkIceAmount = .Light
                                                 
-                                                if selectedDrinkIceAmount == .Light {
-                                                    Calories += 0
+                                                if recipeInfo.selectedDrinkIceAmount == .Light {
+                                                    recipeInfo.Calories += 0
                                                 } else {
-                                                    Calories -= 0
+                                                    recipeInfo.Calories -= 0
                                                 }
                                             } label: {
-                                                if (selectedDrinkIceAmount != .Light){
+                                                if (recipeInfo.selectedDrinkIceAmount != .Light){
                                                     VStack{
                                                         Image("coffee")
                                                             .resizable()
@@ -640,11 +588,10 @@ struct Home: View {
                             } 
                         }
                     }
-                    if selectedBaseDrinkType == .Refresher{
-                        if selectedDrinkSize != .none{
-                            NavigationLink(destination: FinalCalculation_View()){
+                    if recipeInfo.selectedBaseDrinkType == .Refresher{
+                        if recipeInfo.selectedDrinkSize != .none{
+                            NavigationLink(destination: FinalCalculation_View(recipeInfo: recipeInfo)) {
                                 HStack{
-                                    Spacer()
                                     NavigationButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 100)
                                 }
                             }
@@ -665,4 +612,3 @@ struct Homepage_Previews: PreviewProvider {
         }
     }
 }
-

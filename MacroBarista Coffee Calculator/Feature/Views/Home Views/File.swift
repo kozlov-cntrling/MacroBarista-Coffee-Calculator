@@ -15,6 +15,3 @@ struct NewRecipeDetails{
     var selectedDrinkSize: String
 }
 
-protocol FetchRecipeService{
-    
-}

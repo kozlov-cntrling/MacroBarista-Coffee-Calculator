@@ -130,9 +130,7 @@ struct NavigationButtonView: View {
 }
 struct ImgBtnContainer_Previews: PreviewProvider {
     static var previews: some View{
-        Group{
-            NavigationButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 40)
-        }
+        NavigationButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 40)
         ButtonView(title: "Next", sfSymbol: "arrowshape.turn.up.right", width: 40) {}
         ImgButtonView(title: "Frapp", image: "coffee", width: 100) {}
     }

@@ -1,6 +1,8 @@
 import SwiftUI
 import Firebase
 //TODO: add login with appleID/Google
+///TODO: add button that makes password field string viewable
+///Solution: Toggle securefield to regular textfield when button is pressed
 struct ContentView: View {
     @State private var showCreateAccount =  false
     @State private var showForgotPassword =  false

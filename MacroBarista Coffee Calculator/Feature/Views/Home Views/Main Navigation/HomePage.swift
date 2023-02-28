@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//TODO: add horizontal swipe functionalities to switch tabs
 struct Homepage: View {
     @EnvironmentObject var SessionService: SessionServiceImp
 
